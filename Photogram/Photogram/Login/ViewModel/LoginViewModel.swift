@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+class LoginViewModel {
+    var user = User()
+    
+    func requestLogin() {
+    }
+}
