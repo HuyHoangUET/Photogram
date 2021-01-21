@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09292870CE8AA28201ABFD2B /* Pods_Photogram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42EAE14D6BDAD4009EA7D4D /* Pods_Photogram.framework */; };
 		252B5A5625B9261100CEBA85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252B5A5525B9261100CEBA85 /* AppDelegate.swift */; };
 		252B5A5825B9261100CEBA85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252B5A5725B9261100CEBA85 /* SceneDelegate.swift */; };
 		252B5A5A25B9261100CEBA85 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252B5A5925B9261100CEBA85 /* ViewController.swift */; };
@@ -24,6 +25,9 @@
 		252B5A5E25B9261200CEBA85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		252B5A6125B9261200CEBA85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		252B5A6325B9261200CEBA85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1011191A7FEAC85E3F0A6BE /* Pods-Photogram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photogram.debug.xcconfig"; path = "Target Support Files/Pods-Photogram/Pods-Photogram.debug.xcconfig"; sourceTree = "<group>"; };
+		A42EAE14D6BDAD4009EA7D4D /* Pods_Photogram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Photogram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4A8D540CC10B32797FDDD29 /* Pods-Photogram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photogram.release.xcconfig"; path = "Target Support Files/Pods-Photogram/Pods-Photogram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09292870CE8AA28201ABFD2B /* Pods_Photogram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				252B5A5425B9261100CEBA85 /* Photogram */,
 				252B5A5325B9261100CEBA85 /* Products */,
+				DD2E2AA4B263EE05A8E84453 /* Pods */,
+				82C62AA005E25C698081457D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,24 @@
 			path = Photogram;
 			sourceTree = "<group>";
 		};
+		82C62AA005E25C698081457D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A42EAE14D6BDAD4009EA7D4D /* Pods_Photogram.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD2E2AA4B263EE05A8E84453 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A1011191A7FEAC85E3F0A6BE /* Pods-Photogram.debug.xcconfig */,
+				F4A8D540CC10B32797FDDD29 /* Pods-Photogram.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,6 +99,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 252B5A6625B9261200CEBA85 /* Build configuration list for PBXNativeTarget "Photogram" */;
 			buildPhases = (
+				6A7C812B93792A20FCC02340 /* [CP] Check Pods Manifest.lock */,
 				252B5A4E25B9261100CEBA85 /* Sources */,
 				252B5A4F25B9261100CEBA85 /* Frameworks */,
 				252B5A5025B9261100CEBA85 /* Resources */,
@@ -131,6 +157,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6A7C812B93792A20FCC02340 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Photogram-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		252B5A4E25B9261100CEBA85 /* Sources */ = {
@@ -283,6 +334,7 @@
 		};
 		252B5A6725B9261200CEBA85 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1011191A7FEAC85E3F0A6BE /* Pods-Photogram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -301,6 +353,7 @@
 		};
 		252B5A6825B9261200CEBA85 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4A8D540CC10B32797FDDD29 /* Pods-Photogram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
