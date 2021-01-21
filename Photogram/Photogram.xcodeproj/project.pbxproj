@@ -14,6 +14,13 @@
 		252B5A5D25B9261100CEBA85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 252B5A5B25B9261100CEBA85 /* Main.storyboard */; };
 		252B5A5F25B9261200CEBA85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 252B5A5E25B9261200CEBA85 /* Assets.xcassets */; };
 		252B5A6225B9261200CEBA85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 252B5A6025B9261200CEBA85 /* LaunchScreen.storyboard */; };
+		25BEC96D25B971EE00D7FA71 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC96C25B971EE00D7FA71 /* LoginViewController.swift */; };
+		25BEC97025B971FD00D7FA71 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC96F25B971FD00D7FA71 /* User.swift */; };
+		25BEC97325B9721500D7FA71 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC97225B9721500D7FA71 /* UserAccount.swift */; };
+		25BEC97625B9722200D7FA71 /* RealmUserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC97525B9722200D7FA71 /* RealmUserAccount.swift */; };
+		25BEC97925B9723600D7FA71 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC97825B9723600D7FA71 /* LoginViewModel.swift */; };
+		25BEC97C25B9724D00D7FA71 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC97B25B9724D00D7FA71 /* ApiManager.swift */; };
+		25BEC97F25B9725E00D7FA71 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC97E25B9725E00D7FA71 /* AccountManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +32,13 @@
 		252B5A5E25B9261200CEBA85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		252B5A6125B9261200CEBA85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		252B5A6325B9261200CEBA85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25BEC96C25B971EE00D7FA71 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		25BEC96F25B971FD00D7FA71 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		25BEC97225B9721500D7FA71 /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
+		25BEC97525B9722200D7FA71 /* RealmUserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUserAccount.swift; sourceTree = "<group>"; };
+		25BEC97825B9723600D7FA71 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		25BEC97B25B9724D00D7FA71 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		25BEC97E25B9725E00D7FA71 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		A1011191A7FEAC85E3F0A6BE /* Pods-Photogram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photogram.debug.xcconfig"; path = "Target Support Files/Pods-Photogram/Pods-Photogram.debug.xcconfig"; sourceTree = "<group>"; };
 		A42EAE14D6BDAD4009EA7D4D /* Pods_Photogram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Photogram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A8D540CC10B32797FDDD29 /* Pods-Photogram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photogram.release.xcconfig"; path = "Target Support Files/Pods-Photogram/Pods-Photogram.release.xcconfig"; sourceTree = "<group>"; };
@@ -63,6 +77,7 @@
 		252B5A5425B9261100CEBA85 /* Photogram */ = {
 			isa = PBXGroup;
 			children = (
+				25BEC96725B971B700D7FA71 /* Login */,
 				252B5A5525B9261100CEBA85 /* AppDelegate.swift */,
 				252B5A5725B9261100CEBA85 /* SceneDelegate.swift */,
 				252B5A5925B9261100CEBA85 /* ViewController.swift */,
@@ -72,6 +87,52 @@
 				252B5A6325B9261200CEBA85 /* Info.plist */,
 			);
 			path = Photogram;
+			sourceTree = "<group>";
+		};
+		25BEC96725B971B700D7FA71 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				25BEC96B25B971D700D7FA71 /* View */,
+				25BEC96A25B971D200D7FA71 /* Model */,
+				25BEC96925B971C800D7FA71 /* ViewModel */,
+				25BEC96825B971BE00D7FA71 /* Network */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		25BEC96825B971BE00D7FA71 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				25BEC97B25B9724D00D7FA71 /* ApiManager.swift */,
+				25BEC97E25B9725E00D7FA71 /* AccountManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		25BEC96925B971C800D7FA71 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				25BEC97825B9723600D7FA71 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		25BEC96A25B971D200D7FA71 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				25BEC96F25B971FD00D7FA71 /* User.swift */,
+				25BEC97225B9721500D7FA71 /* UserAccount.swift */,
+				25BEC97525B9722200D7FA71 /* RealmUserAccount.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		25BEC96B25B971D700D7FA71 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				25BEC96C25B971EE00D7FA71 /* LoginViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		82C62AA005E25C698081457D /* Frameworks */ = {
@@ -88,7 +149,6 @@
 				A1011191A7FEAC85E3F0A6BE /* Pods-Photogram.debug.xcconfig */,
 				F4A8D540CC10B32797FDDD29 /* Pods-Photogram.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -188,8 +248,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25BEC97625B9722200D7FA71 /* RealmUserAccount.swift in Sources */,
+				25BEC97C25B9724D00D7FA71 /* ApiManager.swift in Sources */,
+				25BEC96D25B971EE00D7FA71 /* LoginViewController.swift in Sources */,
 				252B5A5A25B9261100CEBA85 /* ViewController.swift in Sources */,
+				25BEC97325B9721500D7FA71 /* UserAccount.swift in Sources */,
+				25BEC97F25B9725E00D7FA71 /* AccountManager.swift in Sources */,
+				25BEC97925B9723600D7FA71 /* LoginViewModel.swift in Sources */,
 				252B5A5625B9261100CEBA85 /* AppDelegate.swift in Sources */,
+				25BEC97025B971FD00D7FA71 /* User.swift in Sources */,
 				252B5A5825B9261100CEBA85 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
