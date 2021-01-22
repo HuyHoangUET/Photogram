@@ -9,5 +9,7 @@ target 'Photogram' do
   pod 'Firebase/Analytics'
   # Firebase Authentication SDK
   pod 'Firebase/Auth'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 
 end

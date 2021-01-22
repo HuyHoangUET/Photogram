@@ -14,6 +14,11 @@
 		252B5A5D25B9261100CEBA85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 252B5A5B25B9261100CEBA85 /* Main.storyboard */; };
 		252B5A5F25B9261200CEBA85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 252B5A5E25B9261200CEBA85 /* Assets.xcassets */; };
 		252B5A6225B9261200CEBA85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 252B5A6025B9261200CEBA85 /* LaunchScreen.storyboard */; };
+		2563F14A25BA847F00A6767B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2563F14925BA847F00A6767B /* HomeViewModel.swift */; };
+		2563F14D25BA848B00A6767B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2563F14C25BA848B00A6767B /* HomeViewController.swift */; };
+		2563F15025BA84B300A6767B /* LoginNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2563F14F25BA84B300A6767B /* LoginNavigator.swift */; };
+		2563F15325BA84BF00A6767B /* HomeNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2563F15225BA84BF00A6767B /* HomeNavigator.swift */; };
+		2563F15725BA84D300A6767B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2563F15625BA84D300A6767B /* Home.storyboard */; };
 		25BEC96D25B971EE00D7FA71 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC96C25B971EE00D7FA71 /* LoginViewController.swift */; };
 		25BEC97025B971FD00D7FA71 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC96F25B971FD00D7FA71 /* User.swift */; };
 		25BEC97325B9721500D7FA71 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC97225B9721500D7FA71 /* UserAccount.swift */; };
@@ -31,6 +36,11 @@
 		252B5A5E25B9261200CEBA85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		252B5A6125B9261200CEBA85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		252B5A6325B9261200CEBA85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2563F14925BA847F00A6767B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		2563F14C25BA848B00A6767B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2563F14F25BA84B300A6767B /* LoginNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigator.swift; sourceTree = "<group>"; };
+		2563F15225BA84BF00A6767B /* HomeNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigator.swift; sourceTree = "<group>"; };
+		2563F15625BA84D300A6767B /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		25BEC96C25B971EE00D7FA71 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		25BEC96F25B971FD00D7FA71 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		25BEC97225B9721500D7FA71 /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
@@ -77,6 +87,7 @@
 			children = (
 				25BEC96A25B971D200D7FA71 /* Model */,
 				25BEC96725B971B700D7FA71 /* Login */,
+				2563F14525BA845200A6767B /* Home */,
 				252B5A5525B9261100CEBA85 /* AppDelegate.swift */,
 				252B5A5725B9261100CEBA85 /* SceneDelegate.swift */,
 				252B5A5925B9261100CEBA85 /* ViewController.swift */,
@@ -88,12 +99,24 @@
 			path = Photogram;
 			sourceTree = "<group>";
 		};
+		2563F14525BA845200A6767B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2563F15625BA84D300A6767B /* Home.storyboard */,
+				2563F14925BA847F00A6767B /* HomeViewModel.swift */,
+				2563F14C25BA848B00A6767B /* HomeViewController.swift */,
+				2563F15225BA84BF00A6767B /* HomeNavigator.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		25BEC96725B971B700D7FA71 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				25BEC96C25B971EE00D7FA71 /* LoginViewController.swift */,
 				252B5A5B25B9261100CEBA85 /* Main.storyboard */,
 				25BEC97825B9723600D7FA71 /* LoginViewModel.swift */,
+				25BEC96C25B971EE00D7FA71 /* LoginViewController.swift */,
+				2563F14F25BA84B300A6767B /* LoginNavigator.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -186,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				252B5A6225B9261200CEBA85 /* LaunchScreen.storyboard in Resources */,
+				2563F15725BA84D300A6767B /* Home.storyboard in Resources */,
 				25BEC99725B98A0A00D7FA71 /* GoogleService-Info.plist in Resources */,
 				252B5A5F25B9261200CEBA85 /* Assets.xcassets in Resources */,
 				252B5A5D25B9261100CEBA85 /* Main.storyboard in Resources */,
@@ -242,12 +266,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				25BEC97625B9722200D7FA71 /* RealmUserAccount.swift in Sources */,
+				2563F14A25BA847F00A6767B /* HomeViewModel.swift in Sources */,
 				25BEC96D25B971EE00D7FA71 /* LoginViewController.swift in Sources */,
 				252B5A5A25B9261100CEBA85 /* ViewController.swift in Sources */,
 				25BEC97325B9721500D7FA71 /* UserAccount.swift in Sources */,
+				2563F14D25BA848B00A6767B /* HomeViewController.swift in Sources */,
+				2563F15025BA84B300A6767B /* LoginNavigator.swift in Sources */,
 				25BEC97925B9723600D7FA71 /* LoginViewModel.swift in Sources */,
 				252B5A5625B9261100CEBA85 /* AppDelegate.swift in Sources */,
 				25BEC97025B971FD00D7FA71 /* User.swift in Sources */,
+				2563F15325BA84BF00A6767B /* HomeNavigator.swift in Sources */,
 				252B5A5825B9261100CEBA85 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
