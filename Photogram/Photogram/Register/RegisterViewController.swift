@@ -45,7 +45,6 @@ class RegisterViewController: UIViewController {
                     }
                 }
             })
-            
         } else {
             errorOfConfirmPasswordLabel.text = "Password confirmation doesn't match Password."
         }

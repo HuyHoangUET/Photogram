@@ -21,6 +21,16 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
+        if Auth.auth().currentUser != nil {
+            print(Auth.auth().currentUser?.email)
+            let storyboard = UIStoryboard(name: "Home", bundle: nil)
+            let homeView = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            self.present(homeView, animated: true, completion: nil)
+        }
+    }
+    
     // MARK: -action
     @IBAction func didEndEditUsername(_ sender: Any) {
     }
@@ -39,7 +49,7 @@ class LoginViewController: UIViewController {
             if error != NSError() {
                 let storyboard = UIStoryboard(name: "Home", bundle: nil)
                 let homeView = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-                self.present(homeView, animated: true, completion: nil)
+                self.navigationController?.pushViewController(homeView, animated: true)
             } else {
                 switch AuthErrorCode(rawValue: error.code) {
                 case .missingEmail:
