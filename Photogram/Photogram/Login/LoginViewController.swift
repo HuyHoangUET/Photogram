@@ -10,12 +10,13 @@ import UIKit
 import Firebase
 
 class LoginViewController: UIViewController {
-    let viewModel = LoginViewModel()
     // MARK: -outlet
     @IBOutlet weak var usernameText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var errorOfUsernameLabel: UILabel!
     @IBOutlet weak var errorOfPasswordLabel: UILabel!
+    
+    private let viewModel = LoginViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,6 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
         if Auth.auth().currentUser != nil {
-            print(Auth.auth().currentUser?.email)
             let storyboard = UIStoryboard(name: "Home", bundle: nil)
             let homeView = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
             self.present(homeView, animated: true, completion: nil)
@@ -49,7 +49,7 @@ class LoginViewController: UIViewController {
             if error != NSError() {
                 let storyboard = UIStoryboard(name: "Home", bundle: nil)
                 let homeView = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-                self.navigationController?.pushViewController(homeView, animated: true)
+                self.present(homeView, animated: true, completion: nil)
             } else {
                 switch AuthErrorCode(rawValue: error.code) {
                 case .missingEmail:
