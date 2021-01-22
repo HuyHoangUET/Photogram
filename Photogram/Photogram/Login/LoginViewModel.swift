@@ -7,25 +7,22 @@
 
 import Foundation
 import Firebase
-import RxSwift
 
 class LoginViewModel {
     var user = User()
     var errorMessage = ""
+    var loginSuccess = true
     
-//    func requestLogin() -> Observable<String> {
-//        return Observable.create { observer in
-//            Auth.auth().signIn(withEmail: self.user.account.username,
-//                               password: self.user.account.password) { (authResult, error) in
-//                if let error = error as NSError? {
-//                    observer.onNext(error.localizedDescription)
-//                } else {
-//                    observer.onNext("")
-//                    print("Login success.")
-//                }
-//                observer.onCompleted()
-//            }
-//            return Disposables.create()
-//        }
-//    }
+    func requestLogin(complettion: @escaping (Bool) -> Void) {
+        Auth.auth().signIn(withEmail: self.user.account.username,
+                           password: self.user.account.password) { (authResult, error) in
+            if let error = error as NSError? {
+                self.errorMessage = error.localizedDescription
+                complettion(false)
+            } else {
+                complettion(true)
+                print("Login success.")
+            }
+        }
+    }
 }
