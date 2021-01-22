@@ -10,17 +10,14 @@ import Firebase
 
 class LoginViewModel {
     var user = User()
-    var errorMessage = ""
-    var loginSuccess = true
     
-    func requestLogin(complettion: @escaping (Bool) -> Void) {
+    func requestLogin(complettion: @escaping (NSError, Bool) -> Void) {
         Auth.auth().signIn(withEmail: self.user.account.username,
                            password: self.user.account.password) { (authResult, error) in
             if let error = error as NSError? {
-                self.errorMessage = error.localizedDescription
-                complettion(false)
+                complettion(error, false)
             } else {
-                complettion(true)
+                complettion(NSError(), true)
                 print("Login success.")
             }
         }

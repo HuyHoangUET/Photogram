@@ -14,6 +14,8 @@ class LoginViewController: UIViewController {
     // MARK: -outlet
     @IBOutlet weak var usernameText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
+    @IBOutlet weak var errorOfUsernameLabel: UILabel!
+    @IBOutlet weak var errorOfPasswordLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,13 +35,23 @@ class LoginViewController: UIViewController {
         viewModel.user.account.username = usernameText.text ?? ""
         viewModel.user.account.password = passwordText.text ?? ""
         
-        viewModel.requestLogin(complettion: { done in
+        viewModel.requestLogin(complettion: { error, done in
             if done {
                 let storyboard = UIStoryboard(name: "Home", bundle: nil)
                 let homeView = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
                 self.present(homeView, animated: true, completion: nil)
             } else {
-                let alertController:UIAlertController = UIAlertController(title: "Login failed!", message: self.viewModel.errorMessage, preferredStyle: UIAlertController.Style.alert)
+                switch AuthErrorCode(rawValue: error.code) {
+                case .missingEmail:
+                    self.errorOfUsernameLabel.text = error.localizedDescription
+                case .invalidEmail:
+                    self.errorOfUsernameLabel.text = error.localizedDescription
+                case .wrongPassword:
+                    self.errorOfPasswordLabel.text = error.localizedDescription
+                default:
+                    print(error.localizedDescription)
+                }
+                let alertController:UIAlertController = UIAlertController(title: "Login failed!", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
                 let alertAction:UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:nil)
                 alertController.addAction(alertAction)
                 self.present(alertController, animated: true, completion: nil)
