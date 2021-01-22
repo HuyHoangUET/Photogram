@@ -35,8 +35,8 @@ class LoginViewController: UIViewController {
         viewModel.user.account.username = usernameText.text ?? ""
         viewModel.user.account.password = passwordText.text ?? ""
         
-        viewModel.requestLogin(complettion: { error, done in
-            if done {
+        viewModel.requestLogin(complettion: { error in
+            if error != NSError() {
                 let storyboard = UIStoryboard(name: "Home", bundle: nil)
                 let homeView = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
                 self.present(homeView, animated: true, completion: nil)
