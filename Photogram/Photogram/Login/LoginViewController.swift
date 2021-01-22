@@ -19,13 +19,13 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: -action
-    @IBAction func getUsername(_ sender: Any) {
-        viewModel.user.account.username = usernameText.text ?? ""
+    @IBAction func didEndEditUsername(_ sender: Any) {
     }
-    @IBAction func getPassword(_ sender: Any) {
-        viewModel.user.account.password = passwordText.text ?? ""
+    @IBAction func didEndEditPassword(_ sender: Any) {
     }
     @IBAction func login(_ sender: Any) {
+        viewModel.user.account.username = usernameText.text ?? ""
+        viewModel.user.account.password = passwordText.text ?? ""
         viewModel.requestLogin()
     }
 }
