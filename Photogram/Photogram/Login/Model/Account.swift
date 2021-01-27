@@ -1,5 +1,5 @@
 //
-//  UserAccount.swift
+//  Account.swift
 //  Photogram
 //
 //  Created by LTT on 21/01/2021.

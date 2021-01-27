@@ -7,19 +7,33 @@
 
 import Foundation
 import Firebase
+import UIKit
+import RxSwift
+import RxCocoa
 
-class LoginViewModel {
-    var user = User()
+class LoginViewModel: ViewModelType {
+    struct Input {
+        var user = PublishSubject<User>()
+    }
+    struct Output {
+        var loginRespone = PublishSubject<Bool>()
+        var error = PublishSubject<NSError>()
+    }
     
-    func requestLogin(complettion: @escaping (NSError) -> Void) {
-        Auth.auth().signIn(withEmail: self.user.account.username,
-                           password: self.user.account.password) { (authResult, error) in
-            if let error = error as NSError? {
-                complettion(error)
-            } else {
-                complettion(NSError())
-                print("Login success.")
+    var input = Input()
+    var output = Output()
+    private var bag = DisposeBag()
+    
+    func handleLogin() {
+        input.user.subscribe(onNext: {user in
+            Auth.auth().signIn(withEmail: user.account.username, password: user.account.password) {authResult, error in
+                if let error = error as NSError? {
+                    self.output.error.onNext(error)
+                } else {
+                    self.output.loginRespone.onNext(true)
+                }
             }
-        }
+        })
+        .disposed(by: bag)
     }
 }
