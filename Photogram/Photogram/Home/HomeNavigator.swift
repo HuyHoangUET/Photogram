@@ -6,7 +6,25 @@
 //
 
 import Foundation
+import UIKit
+import Firebase
 
 protocol HomeNavigator {
-    func toLoggin()
+    func logout()
+}
+
+class DefaultHomeNavigator: HomeNavigator {
+    private let navigationController: UINavigationController
+    
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+    
+    func logout() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginView = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        navigationController.setViewControllers([loginView], animated: true)
+    }
+    
+    
 }

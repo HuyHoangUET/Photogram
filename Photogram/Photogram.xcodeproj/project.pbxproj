@@ -24,6 +24,7 @@
 		2576F5D025C0FD98001BA413 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2576F5CF25C0FD98001BA413 /* ViewModelType.swift */; };
 		2576F61025F06F3E001BA413 /* RegisterNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2576F60F25F06F3E001BA413 /* RegisterNavigator.swift */; };
 		2576F61325F06FB6001BA413 /* HomeNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2576F61225F06FB6001BA413 /* HomeNavigator.swift */; };
+		2576F63325F0D8DE001BA413 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2576F63225F0D8DE001BA413 /* PhotoCollectionViewCell.swift */; };
 		25BEC96D25B971EE00D7FA71 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC96C25B971EE00D7FA71 /* LoginViewController.swift */; };
 		25BEC97025B971FD00D7FA71 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC96F25B971FD00D7FA71 /* User.swift */; };
 		25BEC97325B9721500D7FA71 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC97225B9721500D7FA71 /* Account.swift */; };
@@ -51,6 +52,7 @@
 		2576F5CF25C0FD98001BA413 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		2576F60F25F06F3E001BA413 /* RegisterNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNavigator.swift; sourceTree = "<group>"; };
 		2576F61225F06FB6001BA413 /* HomeNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigator.swift; sourceTree = "<group>"; };
+		2576F63225F0D8DE001BA413 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		25BEC96C25B971EE00D7FA71 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		25BEC96F25B971FD00D7FA71 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		25BEC97225B9721500D7FA71 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		2563F14525BA845200A6767B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				2576F63125F0D8BC001BA413 /* Views */,
 				2563F15625BA84D300A6767B /* Home.storyboard */,
 				2563F14925BA847F00A6767B /* HomeViewModel.swift */,
 				2563F14C25BA848B00A6767B /* HomeViewController.swift */,
@@ -154,6 +157,14 @@
 			children = (
 			);
 			path = Library;
+			sourceTree = "<group>";
+		};
+		2576F63125F0D8BC001BA413 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2576F63225F0D8DE001BA413 /* PhotoCollectionViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		25BEC96725B971B700D7FA71 /* Login */ = {
@@ -317,6 +328,7 @@
 				25BEC97625B9722200D7FA71 /* RealmUserAccount.swift in Sources */,
 				2576F61325F06FB6001BA413 /* HomeNavigator.swift in Sources */,
 				2563F14A25BA847F00A6767B /* HomeViewModel.swift in Sources */,
+				2576F63325F0D8DE001BA413 /* PhotoCollectionViewCell.swift in Sources */,
 				25BEC96D25B971EE00D7FA71 /* LoginViewController.swift in Sources */,
 				252B5A5A25B9261100CEBA85 /* ViewController.swift in Sources */,
 				25BEC97325B9721500D7FA71 /* Account.swift in Sources */,

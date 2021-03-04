@@ -38,7 +38,6 @@ class LoginViewModel: ViewModelType {
                 Auth.auth().signIn(withEmail: username, password: password) {authResult, error in
                     if let error = error as NSError? {
                         loginError = error.localizedDescription
-                        
                     } else {
                         self.navigator.toHomeView()
                     }

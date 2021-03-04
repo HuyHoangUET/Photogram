@@ -28,8 +28,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         let input = LoginViewModel.Input(username: usernameTextField.rx.text.orEmpty.asDriver(),
                                          password: passwordTextField.rx.text.orEmpty.asDriver(), loginTrigger: logginButton.rx.tap.asDriver(), signUpTrigger: signUpButton.rx.tap.asDriver())
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        navigator = DefaultLoginNavigator(navigationController: self.navigationController ?? UINavigationController(), storyBoard: storyboard)
+        navigator = DefaultLoginNavigator(navigationController: self.navigationController ?? UINavigationController())
         viewModel = LoginViewModel(navigator: navigator!)
         let output = viewModel.transform(input: input)
         output.login.drive()
@@ -41,8 +40,7 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
         if Auth.auth().currentUser != nil {
-            let storyboard = UIStoryboard(name: "Home", bundle: nil)
-            self.navigator = DefaultLoginNavigator(navigationController: self.navigationController ?? UINavigationController(), storyBoard: storyboard)
+            self.navigator = DefaultLoginNavigator(navigationController: self.navigationController ?? UINavigationController())
             self.navigator?.toHomeView()
         }
     }
