@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 import Firebase
+import RxSwift
+import RxCocoa
 
 class LoginViewController: UIViewController {
     // MARK: -outlet
@@ -17,40 +19,42 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var errorOfPasswordLabel: UILabel!
     
     private let viewModel = LoginViewModel()
+    private var navigator: DefaultLoginNavigator?
+    private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.handleLogin()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
         if Auth.auth().currentUser != nil {
             let storyboard = UIStoryboard(name: "Home", bundle: nil)
-            let homeView = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-            self.present(homeView, animated: true, completion: nil)
+            self.navigator = DefaultLoginNavigator(navigationController: self.navigationController ?? UINavigationController(), storyBoard: storyboard)
+            self.navigator?.toHomeView()
         }
     }
     
     // MARK: -action
-    @IBAction func didEndEditUsername(_ sender: Any) {
-    }
-    @IBAction func didEndEditPassword(_ sender: Any) {
-    }
     @IBAction func signUp(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Register", bundle: nil)
-        let registerView = (storyboard.instantiateViewController(withIdentifier: "RegisterViewController")) as! RegisterViewController
-        self.navigationController?.pushViewController(registerView, animated: true)
+        navigator = DefaultLoginNavigator(navigationController: self.navigationController ?? UINavigationController(), storyBoard: storyboard)
+        navigator?.toRegisterView()
     }
     @IBAction func login(_ sender: Any) {
-        viewModel.user.account.username = usernameText.text ?? ""
-        viewModel.user.account.password = passwordText.text ?? ""
-        
-        viewModel.requestLogin(complettion: { error in
-            if error != NSError() {
+        let userAccount = Account(username: usernameText.text ?? "", password: passwordText.text ?? "")
+        let user = User(account: userAccount)
+        viewModel.input.user.onNext(user)
+        viewModel.output.loginRespone
+            .subscribe(onNext: {respone in
                 let storyboard = UIStoryboard(name: "Home", bundle: nil)
-                let homeView = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-                self.present(homeView, animated: true, completion: nil)
-            } else {
+                self.navigator = DefaultLoginNavigator(navigationController: self.navigationController ?? UINavigationController(), storyBoard: storyboard)
+                self.navigator?.toHomeView()
+            })
+            .disposed(by: bag)
+        viewModel.output.error
+            .subscribe(onNext: {error in
                 switch AuthErrorCode(rawValue: error.code) {
                 case .missingEmail:
                     self.errorOfUsernameLabel.text = error.localizedDescription
@@ -65,7 +69,7 @@ class LoginViewController: UIViewController {
                 let alertAction:UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:nil)
                 alertController.addAction(alertAction)
                 self.present(alertController, animated: true, completion: nil)
-            }
-        })
+            })
+            .disposed(by: bag)
     }
 }

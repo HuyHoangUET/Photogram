@@ -21,9 +21,10 @@
 		2563F15E25BA8CAF00A6767B /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2563F15D25BA8CAF00A6767B /* Register.storyboard */; };
 		2563F16125BA8CC100A6767B /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2563F16025BA8CC100A6767B /* RegisterViewModel.swift */; };
 		2563F16425BA8CD200A6767B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2563F16325BA8CD200A6767B /* RegisterViewController.swift */; };
+		2576F5D025C0FD98001BA413 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2576F5CF25C0FD98001BA413 /* ViewModelType.swift */; };
 		25BEC96D25B971EE00D7FA71 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC96C25B971EE00D7FA71 /* LoginViewController.swift */; };
 		25BEC97025B971FD00D7FA71 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC96F25B971FD00D7FA71 /* User.swift */; };
-		25BEC97325B9721500D7FA71 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC97225B9721500D7FA71 /* UserAccount.swift */; };
+		25BEC97325B9721500D7FA71 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC97225B9721500D7FA71 /* Account.swift */; };
 		25BEC97625B9722200D7FA71 /* RealmUserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC97525B9722200D7FA71 /* RealmUserAccount.swift */; };
 		25BEC97925B9723600D7FA71 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC97825B9723600D7FA71 /* LoginViewModel.swift */; };
 		25BEC99725B98A0A00D7FA71 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25BEC99625B98A0A00D7FA71 /* GoogleService-Info.plist */; };
@@ -45,9 +46,10 @@
 		2563F15D25BA8CAF00A6767B /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		2563F16025BA8CC100A6767B /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		2563F16325BA8CD200A6767B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		2576F5CF25C0FD98001BA413 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		25BEC96C25B971EE00D7FA71 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		25BEC96F25B971FD00D7FA71 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		25BEC97225B9721500D7FA71 /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
+		25BEC97225B9721500D7FA71 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		25BEC97525B9722200D7FA71 /* RealmUserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUserAccount.swift; sourceTree = "<group>"; };
 		25BEC97825B9723600D7FA71 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		25BEC99625B98A0A00D7FA71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 		252B5A5425B9261100CEBA85 /* Photogram */ = {
 			isa = PBXGroup;
 			children = (
+				2576F5CD25C0FCEA001BA413 /* Protocol */,
 				25BEC96A25B971D200D7FA71 /* Model */,
 				25BEC96725B971B700D7FA71 /* Login */,
 				2563F15C25BA8C8500A6767B /* Register */,
@@ -124,6 +127,13 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
+		2576F5CD25C0FCEA001BA413 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		25BEC96725B971B700D7FA71 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,8 +149,9 @@
 			isa = PBXGroup;
 			children = (
 				25BEC96F25B971FD00D7FA71 /* User.swift */,
-				25BEC97225B9721500D7FA71 /* UserAccount.swift */,
+				25BEC97225B9721500D7FA71 /* Account.swift */,
 				25BEC97525B9722200D7FA71 /* RealmUserAccount.swift */,
+				2576F5CF25C0FD98001BA413 /* ViewModelType.swift */,
 			);
 			name = Model;
 			path = Login/Model;
@@ -280,11 +291,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2576F5D025C0FD98001BA413 /* ViewModelType.swift in Sources */,
 				25BEC97625B9722200D7FA71 /* RealmUserAccount.swift in Sources */,
 				2563F14A25BA847F00A6767B /* HomeViewModel.swift in Sources */,
 				25BEC96D25B971EE00D7FA71 /* LoginViewController.swift in Sources */,
 				252B5A5A25B9261100CEBA85 /* ViewController.swift in Sources */,
-				25BEC97325B9721500D7FA71 /* UserAccount.swift in Sources */,
+				25BEC97325B9721500D7FA71 /* Account.swift in Sources */,
 				2563F14D25BA848B00A6767B /* HomeViewController.swift in Sources */,
 				2563F15025BA84B300A6767B /* LoginNavigator.swift in Sources */,
 				25BEC97925B9723600D7FA71 /* LoginViewModel.swift in Sources */,
