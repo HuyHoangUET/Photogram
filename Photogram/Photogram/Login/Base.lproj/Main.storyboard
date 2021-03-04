@@ -153,8 +153,10 @@
                     <connections>
                         <outlet property="errorOfPasswordLabel" destination="CF6-Oi-0gN" id="ZDu-8h-hxN"/>
                         <outlet property="errorOfUsernameLabel" destination="8ck-ex-xQb" id="11D-VB-tCJ"/>
-                        <outlet property="passwordText" destination="sDf-Oj-VIv" id="i7T-X6-LEr"/>
-                        <outlet property="usernameText" destination="Ope-Ca-fCM" id="OrV-Fb-IRO"/>
+                        <outlet property="logginButton" destination="zNR-Uf-Zg7" id="Sqq-Z4-ZYq"/>
+                        <outlet property="passwordTextField" destination="sDf-Oj-VIv" id="i7T-X6-LEr"/>
+                        <outlet property="signUpButton" destination="XpS-XK-XrF" id="Ser-0P-5ev"/>
+                        <outlet property="usernameTextField" destination="Ope-Ca-fCM" id="OrV-Fb-IRO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -11,7 +11,6 @@
         <!--Home Navigator-->
         <scene sceneID="fgo-JB-fxr">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FS2-14-Qlq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="MWn-1V-r92" customClass="HomeNavigator" customModule="Photogram" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AEl-U9-Oo3">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -21,6 +20,7 @@
                         <segue destination="sW2-Vg-LVb" kind="relationship" relationship="rootViewController" id="JA9-en-xah"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FS2-14-Qlq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-648" y="-40"/>
         </scene>
@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eko-Rt-kKU">
-                                <rect key="frame" x="232" y="179" width="48" height="30"/>
+                                <rect key="frame" x="304" y="88" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <state key="normal" title="Logout"/>
