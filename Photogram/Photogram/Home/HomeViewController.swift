@@ -17,12 +17,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var logoutButton: UIButton!
     
     var viewModel: HomeViewmodel?
-    var navigator: DefaultHomeNavigator?
     private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        handleHomeView()
+        bindViewModel()
     }
     
     // MARK: -action
@@ -34,7 +33,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func handleHomeView() {
+    func bindViewModel() {
         let input = HomeViewmodel.Input(logoutTrigger: logoutButton.rx.tap.asDriver())
         let output = viewModel?.transform(input: input)
         output?.logout.drive()
