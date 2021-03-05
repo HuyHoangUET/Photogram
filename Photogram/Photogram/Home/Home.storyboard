@@ -78,7 +78,6 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="49Z-V4-Byl"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="49Z-V4-Byl" firstAttribute="trailing" secondItem="xQS-4d-8Hv" secondAttribute="trailing" id="Amc-j0-8qL"/>
                             <constraint firstItem="xQS-4d-8Hv" firstAttribute="top" secondItem="49Z-V4-Byl" secondAttribute="top" id="ifY-Vr-VkF"/>
