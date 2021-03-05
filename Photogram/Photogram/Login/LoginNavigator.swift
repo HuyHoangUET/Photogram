@@ -25,6 +25,8 @@ class DefaultLoginNavigator: LoginNavigator {
     func toHomeView() {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let homeView = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        homeView.navigator = DefaultHomeNavigator(navigationController: self.navigationController)
+        homeView.viewModel = HomeViewmodel(navigator: homeView.navigator!)
         navigationController.setViewControllers([homeView], animated: true)
     }
     
