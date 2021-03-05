@@ -21,22 +21,20 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     
     var viewModel: LoginViewModel?
-    private var navigator: DefaultLoginNavigator?
     private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigator = DefaultLoginNavigator(navigationController: self.navigationController ?? UINavigationController())
-        viewModel = LoginViewModel(navigator: navigator!)
+        viewModel = LoginViewModel(navigator: DefaultLoginNavigator(navigationController: self.navigationController ?? UINavigationController()))
         bindViewModel()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(false)
-        if Auth.auth().currentUser != nil {
-            self.navigator?.toHomeView()
-        }
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(false)
+//        if Auth.auth().currentUser != nil {
+//            self.navigator?.toHomeView()
+//        }
+//    }
     
     func bindViewModel() {
         let input = LoginViewModel.Input(username: usernameTextField.rx.text.orEmpty.asDriver(),
