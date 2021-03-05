@@ -22,9 +22,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window = UIWindow(windowScene: windowScene)
             let storyboard = UIStoryboard(name: "Home", bundle: nil)
             let homeView = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-            let navigator = DefaultHomeNavigator(navigationController: LoginViewController().navigationController ?? UINavigationController())
+            let homenavigationController = UINavigationController(rootViewController: homeView)
+            let navigator = DefaultHomeNavigator(navigationController:homenavigationController)
             homeView.viewModel = HomeViewmodel(navigator: navigator)
-            window?.rootViewController = UINavigationController(rootViewController: homeView)
+            window?.rootViewController = homenavigationController
             window?.makeKeyAndVisible()
         }
     }
