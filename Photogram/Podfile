@@ -6,10 +6,11 @@ target 'Photogram' do
   use_frameworks!
 
   # Pods for Photogram
+  pod 'RxSwift'
+  pod 'RxCocoa'
   pod 'Firebase/Analytics'
   # Firebase Authentication SDK
   pod 'Firebase/Auth'
-  pod 'RxSwift'
-  pod 'RxCocoa'
+  pod 'Firebase/Firestore'
 
 end

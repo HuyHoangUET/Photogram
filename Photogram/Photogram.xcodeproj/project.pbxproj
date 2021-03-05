@@ -22,6 +22,9 @@
 		2563F16125BA8CC100A6767B /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2563F16025BA8CC100A6767B /* RegisterViewModel.swift */; };
 		2563F16425BA8CD200A6767B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2563F16325BA8CD200A6767B /* RegisterViewController.swift */; };
 		2576F5D025C0FD98001BA413 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2576F5CF25C0FD98001BA413 /* ViewModelType.swift */; };
+		2576F61025F06F3E001BA413 /* RegisterNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2576F60F25F06F3E001BA413 /* RegisterNavigator.swift */; };
+		2576F61325F06FB6001BA413 /* HomeNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2576F61225F06FB6001BA413 /* HomeNavigator.swift */; };
+		2576F63325F0D8DE001BA413 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2576F63225F0D8DE001BA413 /* PhotoCollectionViewCell.swift */; };
 		25BEC96D25B971EE00D7FA71 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC96C25B971EE00D7FA71 /* LoginViewController.swift */; };
 		25BEC97025B971FD00D7FA71 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC96F25B971FD00D7FA71 /* User.swift */; };
 		25BEC97325B9721500D7FA71 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC97225B9721500D7FA71 /* Account.swift */; };
@@ -47,6 +50,9 @@
 		2563F16025BA8CC100A6767B /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		2563F16325BA8CD200A6767B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		2576F5CF25C0FD98001BA413 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		2576F60F25F06F3E001BA413 /* RegisterNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNavigator.swift; sourceTree = "<group>"; };
+		2576F61225F06FB6001BA413 /* HomeNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigator.swift; sourceTree = "<group>"; };
+		2576F63225F0D8DE001BA413 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		25BEC96C25B971EE00D7FA71 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		25BEC96F25B971FD00D7FA71 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		25BEC97225B9721500D7FA71 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -96,6 +102,8 @@
 				25BEC96725B971B700D7FA71 /* Login */,
 				2563F15C25BA8C8500A6767B /* Register */,
 				2563F14525BA845200A6767B /* Home */,
+				2576F61525F08EAC001BA413 /* Search */,
+				2576F61625F08EB8001BA413 /* Library */,
 				252B5A5525B9261100CEBA85 /* AppDelegate.swift */,
 				252B5A5725B9261100CEBA85 /* SceneDelegate.swift */,
 				252B5A5925B9261100CEBA85 /* ViewController.swift */,
@@ -110,9 +118,11 @@
 		2563F14525BA845200A6767B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				2576F63125F0D8BC001BA413 /* Views */,
 				2563F15625BA84D300A6767B /* Home.storyboard */,
 				2563F14925BA847F00A6767B /* HomeViewModel.swift */,
 				2563F14C25BA848B00A6767B /* HomeViewController.swift */,
+				2576F61225F06FB6001BA413 /* HomeNavigator.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -123,6 +133,7 @@
 				2563F15D25BA8CAF00A6767B /* Register.storyboard */,
 				2563F16025BA8CC100A6767B /* RegisterViewModel.swift */,
 				2563F16325BA8CD200A6767B /* RegisterViewController.swift */,
+				2576F60F25F06F3E001BA413 /* RegisterNavigator.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -132,6 +143,28 @@
 			children = (
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		2576F61525F08EAC001BA413 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		2576F61625F08EB8001BA413 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		2576F63125F0D8BC001BA413 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2576F63225F0D8DE001BA413 /* PhotoCollectionViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		25BEC96725B971B700D7FA71 /* Login */ = {
@@ -293,7 +326,9 @@
 			files = (
 				2576F5D025C0FD98001BA413 /* ViewModelType.swift in Sources */,
 				25BEC97625B9722200D7FA71 /* RealmUserAccount.swift in Sources */,
+				2576F61325F06FB6001BA413 /* HomeNavigator.swift in Sources */,
 				2563F14A25BA847F00A6767B /* HomeViewModel.swift in Sources */,
+				2576F63325F0D8DE001BA413 /* PhotoCollectionViewCell.swift in Sources */,
 				25BEC96D25B971EE00D7FA71 /* LoginViewController.swift in Sources */,
 				252B5A5A25B9261100CEBA85 /* ViewController.swift in Sources */,
 				25BEC97325B9721500D7FA71 /* Account.swift in Sources */,
@@ -301,6 +336,7 @@
 				2563F15025BA84B300A6767B /* LoginNavigator.swift in Sources */,
 				25BEC97925B9723600D7FA71 /* LoginViewModel.swift in Sources */,
 				2563F16125BA8CC100A6767B /* RegisterViewModel.swift in Sources */,
+				2576F61025F06F3E001BA413 /* RegisterNavigator.swift in Sources */,
 				2563F16425BA8CD200A6767B /* RegisterViewController.swift in Sources */,
 				252B5A5625B9261100CEBA85 /* AppDelegate.swift in Sources */,
 				25BEC97025B971FD00D7FA71 /* User.swift in Sources */,

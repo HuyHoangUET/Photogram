@@ -12,28 +12,40 @@ import RxSwift
 import RxCocoa
 
 class LoginViewModel: ViewModelType {
+    private var bag = DisposeBag()
+    private let navigator: LoginNavigator
+    
+    init(navigator: LoginNavigator) {
+        self.navigator = navigator
+    }
+    
     struct Input {
-        var user = PublishSubject<User>()
+        let username: Driver<String>
+        let password: Driver<String>
+        let loginTrigger: Driver<Void>
+        let signUpTrigger: Driver<Void>
     }
     struct Output {
-        var loginRespone = PublishSubject<Bool>()
-        var error = PublishSubject<NSError>()
+        let login: Driver<Void>
+        let signUp: Driver<Void>
     }
     
-    var input = Input()
-    var output = Output()
-    private var bag = DisposeBag()
-    
-    func handleLogin() {
-        input.user.subscribe(onNext: {user in
-            Auth.auth().signIn(withEmail: user.account.username, password: user.account.password) {authResult, error in
-                if let error = error as NSError? {
-                    self.output.error.onNext(error)
-                } else {
-                    self.output.loginRespone.onNext(true)
+    func transform(input: Input) -> Output {
+        let usernameAndPassword = Driver.combineLatest(input.username, input.password)
+        var loginError = ""
+        let login = input.loginTrigger.withLatestFrom(usernameAndPassword)
+            .map { (username, password) in
+                Auth.auth().signIn(withEmail: username, password: password) {authResult, error in
+                    if let error = error as NSError? {
+                        loginError = error.localizedDescription
+                    } else {
+                        self.navigator.toHomeView()
+                    }
                 }
             }
-        })
-        .disposed(by: bag)
+        let signUp = input.signUpTrigger
+            .do(onNext: navigator.toRegisterView)
+        return Output(login: login, signUp: signUp)
     }
 }
+

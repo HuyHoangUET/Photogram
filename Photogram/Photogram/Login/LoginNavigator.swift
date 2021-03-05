@@ -16,22 +16,21 @@ protocol LoginNavigator {
 }
 
 class DefaultLoginNavigator: LoginNavigator {
-    private let storyBoard: UIStoryboard
     private let navigationController: UINavigationController
     
-    init(navigationController: UINavigationController,
-         storyBoard: UIStoryboard) {
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.storyBoard = storyBoard
     }
     
     func toHomeView() {
-        let homeView = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-        navigationController.present(homeView, animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let homeView = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        navigationController.setViewControllers([homeView], animated: true)
     }
     
     func toRegisterView() {
-        let registerView = storyBoard.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+        let storyboard2 = UIStoryboard(name: "Register", bundle: nil)
+        let registerView = storyboard2.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
         navigationController.pushViewController(registerView, animated: true)
     }
 }
