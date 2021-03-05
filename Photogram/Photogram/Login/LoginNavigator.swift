@@ -16,7 +16,11 @@ protocol LoginNavigator {
 }
 
 class DefaultLoginNavigator: LoginNavigator {
-    private let navigationController = UINavigationController()
+    private let navigationController: UINavigationController
+
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
     
     func toHomeView() {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)

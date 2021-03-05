@@ -22,10 +22,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let input = HomeViewmodel.Input(logoutTrigger: logoutButton.rx.tap.asDriver())
-        let output = viewModel?.transform(input: input)
-        output?.logout.drive()
-            .disposed(by: bag)
+        handleHomeView()
     }
     
     // MARK: -action
@@ -35,5 +32,12 @@ class HomeViewController: UIViewController {
         } catch {
             print("error")
         }
+    }
+    
+    func handleHomeView() {
+        let input = HomeViewmodel.Input(logoutTrigger: logoutButton.rx.tap.asDriver())
+        let output = viewModel?.transform(input: input)
+        output?.logout.drive()
+            .disposed(by: bag)
     }
 }
