@@ -16,15 +16,15 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var photoCollectionView: UICollectionView!
     @IBOutlet weak var logoutButton: UIButton!
     
-    var viewModel: HomeViewmodel!
+    var viewModel: HomeViewmodel?
     var navigator: DefaultHomeNavigator?
     private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let input = HomeViewmodel.Input(logoutTrigger: logoutButton.rx.tap.asDriver())
-        let output = viewModel.transform(input: input)
-        output.logout.drive()
+        let output = viewModel?.transform(input: input)
+        output?.logout.drive()
             .disposed(by: bag)
     }
     

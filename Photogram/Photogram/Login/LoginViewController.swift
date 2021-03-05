@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var logginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     
-    var viewModel: LoginViewModel!
+    var viewModel: LoginViewModel?
     private var navigator: DefaultLoginNavigator?
     private let bag = DisposeBag()
     
@@ -30,10 +30,10 @@ class LoginViewController: UIViewController {
                                          password: passwordTextField.rx.text.orEmpty.asDriver(), loginTrigger: logginButton.rx.tap.asDriver(), signUpTrigger: signUpButton.rx.tap.asDriver())
         navigator = DefaultLoginNavigator(navigationController: self.navigationController ?? UINavigationController())
         viewModel = LoginViewModel(navigator: navigator!)
-        let output = viewModel.transform(input: input)
-        output.login.drive()
+        let output = viewModel?.transform(input: input)
+        output?.login.drive()
             .disposed(by: bag)
-        output.signUp.drive()
+        output?.signUp.drive()
             .disposed(by: bag)
     }
     
