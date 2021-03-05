@@ -22,6 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window = UIWindow(windowScene: windowScene)
             let storyboard = UIStoryboard(name: "Home", bundle: nil)
             let homeView = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            let navigator = DefaultHomeNavigator(navigationController: LoginViewController().navigationController ?? UINavigationController())
+            homeView.viewModel = HomeViewmodel(navigator: navigator)
             window?.rootViewController = UINavigationController(rootViewController: homeView)
             window?.makeKeyAndVisible()
         }

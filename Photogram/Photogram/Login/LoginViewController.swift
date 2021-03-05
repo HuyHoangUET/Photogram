@@ -29,13 +29,6 @@ class LoginViewController: UIViewController {
         bindViewModel()
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(false)
-//        if Auth.auth().currentUser != nil {
-//            self.navigator?.toHomeView()
-//        }
-//    }
-    
     func bindViewModel() {
         let input = LoginViewModel.Input(username: usernameTextField.rx.text.orEmpty.asDriver(),
                                          password: passwordTextField.rx.text.orEmpty.asDriver(), loginTrigger: logginButton.rx.tap.asDriver(), signUpTrigger: signUpButton.rx.tap.asDriver())

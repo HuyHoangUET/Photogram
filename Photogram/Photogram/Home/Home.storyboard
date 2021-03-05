@@ -72,9 +72,6 @@
                                 <rect key="frame" x="255" y="239" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="logout:" destination="sW2-Vg-LVb" eventType="touchUpInside" id="9pC-Zq-7F1"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="49Z-V4-Byl"/>
