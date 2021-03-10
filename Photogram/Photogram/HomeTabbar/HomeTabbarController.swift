@@ -31,10 +31,14 @@ class HomeTabbarController: UITabBarController{
         let libraryNavigationController = UINavigationController(rootViewController: libraryView)
         libraryView.tabBarItem = UITabBarItem(title: "Library", image: UIImage(systemName: "folder.fill"), tag: 3)
         
-        self.viewControllers = [homeNavigationController, searchNavigationController, libraryNavigationController]
+        // Profile
+        let profileView = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+        let profileNavigationController = UINavigationController(rootViewController: profileView)
+        profileView.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.circle.fill"), tag: 4)
         
-        let homeTabbarNavi = UINavigationController(rootViewController: self)
-        let homeNavigator = DefaultHomeNavigator(navigationController: homeTabbarNavi)
+        self.viewControllers = [homeNavigationController, searchNavigationController, libraryNavigationController, profileNavigationController]
+        
+        let homeNavigator = DefaultHomeNavigator(navigationController: homeNavigationController)
         homeView.viewModel = HomeViewmodel(navigator: homeNavigator)
     }
 }
