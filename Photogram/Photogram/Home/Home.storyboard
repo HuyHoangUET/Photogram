@@ -68,11 +68,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rsm-qu-cD2">
-                                <rect key="frame" x="255" y="239" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="49Z-V4-Byl"/>
                         <constraints>
@@ -85,7 +80,6 @@
                     <tabBarItem key="tabBarItem" title="Home" selectedImage="house.fill" catalog="system" id="Nmd-Nt-ljk"/>
                     <navigationItem key="navigationItem" title="home" id="jDZ-8t-iUQ"/>
                     <connections>
-                        <outlet property="logoutButton" destination="rsm-qu-cD2" id="GBk-6O-u8Z"/>
                         <outlet property="photoCollectionView" destination="xQS-4d-8Hv" id="nz1-ld-SoR"/>
                     </connections>
                 </viewController>
@@ -185,24 +179,25 @@
                     <view key="view" contentMode="scaleToFill" id="4MX-9I-f0B">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7Z-Kx-eeB">
-                                <rect key="frame" x="172" y="244" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Logout"/>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="HuS-m5-pAm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6w8-n3-LF4"/>
+                    <navigationItem key="navigationItem" id="6w8-n3-LF4">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="RHF-jQ-VXl">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="e7Z-Kx-eeB">
+                                <rect key="frame" x="172" y="197" width="48" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="logoutButton" destination="e7Z-Kx-eeB" id="3Ux-V6-z0d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nmt-jU-C20" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1477" y="799"/>
+            <point key="canvasLocation" x="1476.8115942028987" y="798.88392857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JmI-Ox-dPX">
