@@ -161,10 +161,10 @@
             </objects>
             <point key="canvasLocation" x="725" y="123"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Photogram Tabbar Controller-->
         <scene sceneID="Iqy-xB-S3j">
             <objects>
-                <tabBarController id="jQk-7W-WAO" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="PhotogramTabbarController" id="jQk-7W-WAO" customClass="PhotogramTabbarController" customModule="Photogram" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="m11-xM-M4K"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OSU-ec-5EX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>

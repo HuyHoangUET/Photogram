@@ -25,7 +25,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = LoginViewModel(navigator: DefaultLoginNavigator(navigationController: self.navigationController ?? UINavigationController()))
         bindViewModel()
     }
     

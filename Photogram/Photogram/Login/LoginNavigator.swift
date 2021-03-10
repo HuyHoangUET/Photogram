@@ -30,6 +30,8 @@ class DefaultLoginNavigator: LoginNavigator {
         let navigator = DefaultHomeNavigator(navigationController: self.navigationController)
         homeView.viewModel = HomeViewmodel(navigator: navigator)
         navigationController.setViewControllers([homeView], animated: true)
+//        let photogramTabbar = storyboard.instantiateViewController(withIdentifier: "PhotogramTabbarController") as! PhotogramTabbarController
+//        navigationController.setViewControllers([photogramTabbar], animated: true)
     }
     
     func toRegisterView() {
