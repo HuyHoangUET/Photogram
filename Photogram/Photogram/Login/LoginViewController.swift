@@ -31,8 +31,8 @@ class LoginViewController: UIViewController {
     func bindViewModel() {
         let input = LoginViewModel.Input(username: usernameTextField.rx.text.orEmpty.asDriver(),
                                          password: passwordTextField.rx.text.orEmpty.asDriver(), loginTrigger: logginButton.rx.tap.asDriver(), signUpTrigger: signUpButton.rx.tap.asDriver())
-        guard viewModel != nil else {return}
-        let output = viewModel!.transform(input: input)
+        guard let viewModel = viewModel else {return}
+        let output = viewModel.transform(input: input)
         output.login.drive()
             .disposed(by: bag)
         output.signUp.drive()
