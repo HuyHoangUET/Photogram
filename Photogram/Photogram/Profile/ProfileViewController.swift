@@ -31,12 +31,14 @@ class ProfileViewController: UIViewController {
     }
     
     func bindViewModel() {
-        let input = ProfileViewmodel.Input(logoutTrigger: logoutButton.rx.tap.asDriver())
+        let input = ProfileViewmodel.Input(logoutTrigger: logoutButton.rx.tap.asDriver(), uploadTrigger: uploadButton.rx.tap.asDriver())
         guard let viewModel = viewModel else {
             print("viewmodel nil")
             return}
         let output = viewModel.transform(input: input)
         output.logout.drive()
+            .disposed(by: bag)
+        output.toUploadView.drive()
             .disposed(by: bag)
     }
     

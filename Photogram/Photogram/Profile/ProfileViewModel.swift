@@ -21,7 +21,7 @@ class ProfileViewmodel: ViewModelType {
     
     struct Input {
         let logoutTrigger: Driver<Void>
-        let postTrigger: Driver<Void>
+        let uploadTrigger: Driver<Void>
     }
     
     struct Output {
@@ -39,7 +39,9 @@ class ProfileViewmodel: ViewModelType {
                     print("error")
                 }
             })
+        let toUploadView = input.uploadTrigger
+            .do(onNext: navigator.toUploadView)
         
-        return Output(logout: logout)
+        return Output(logout: logout, toUploadView: toUploadView)
     }
 }

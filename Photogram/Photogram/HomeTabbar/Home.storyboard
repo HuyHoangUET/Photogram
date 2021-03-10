@@ -265,9 +265,6 @@
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                         <state key="normal" title="Upload photo"/>
-                                                        <connections>
-                                                            <segue destination="Vam-Xf-y8Z" kind="show" id="wQS-pA-nJA"/>
-                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -352,18 +349,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ikt-jX-neM">
-                                <rect key="frame" x="71" y="163" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ikt-jX-neM">
+                                <rect key="frame" x="0.0" y="44" width="414" height="740"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENA-Ew-6ZH">
-                                <rect key="frame" x="141" y="663" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENA-Ew-6ZH">
+                                <rect key="frame" x="10" y="794" width="394" height="68"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <state key="normal" title="Upload">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bbc-F1-3AE"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ENA-Ew-6ZH" firstAttribute="height" secondItem="Bbc-F1-3AE" secondAttribute="height" multiplier="1/12" id="Cap-cM-W73"/>
+                            <constraint firstItem="Ikt-jX-neM" firstAttribute="leading" secondItem="Bbc-F1-3AE" secondAttribute="leading" id="Ctg-cp-9z4"/>
+                            <constraint firstItem="Bbc-F1-3AE" firstAttribute="trailing" secondItem="Ikt-jX-neM" secondAttribute="trailing" id="MpK-Oy-seP"/>
+                            <constraint firstItem="Ikt-jX-neM" firstAttribute="top" secondItem="Bbc-F1-3AE" secondAttribute="top" id="h62-vW-PJT"/>
+                            <constraint firstItem="Bbc-F1-3AE" firstAttribute="trailing" secondItem="ENA-Ew-6ZH" secondAttribute="trailing" constant="10" id="h65-sV-JQ0"/>
+                            <constraint firstItem="Bbc-F1-3AE" firstAttribute="bottom" secondItem="ENA-Ew-6ZH" secondAttribute="bottom" id="p4I-Br-BSg"/>
+                            <constraint firstItem="ENA-Ew-6ZH" firstAttribute="leading" secondItem="Bbc-F1-3AE" secondAttribute="leading" constant="10" id="t2A-dT-8Io"/>
+                            <constraint firstItem="ENA-Ew-6ZH" firstAttribute="top" secondItem="Ikt-jX-neM" secondAttribute="bottom" constant="10" id="u4T-Nb-AzY"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="E9K-uS-Ect"/>
                 </viewController>
