@@ -24,17 +24,9 @@ class HomeViewController: UIViewController {
         bindViewModel()
     }
     
-    // MARK: -action
-//    @IBAction func logout(_ sender: Any) {
-//        do {
-//            try Auth.auth().signOut()
-//        } catch {
-//            print("error")
-//        }
-//    }
-    
     func bindViewModel() {
         let input = HomeViewmodel.Input(logoutTrigger: logoutButton.rx.tap.asDriver())
+        guard viewModel != nil else {return}
         let output = viewModel!.transform(input: input)
         output.logout.drive()
             .disposed(by: bag)
