@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 class UploadViewController: UIViewController {
+    // MARK: -outlet
+    @IBOutlet weak var photoImage: UIImageView!
+    @IBOutlet weak var uploadButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
     }

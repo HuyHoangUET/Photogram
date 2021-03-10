@@ -349,7 +349,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ikt-jX-neM">
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ikt-jX-neM">
                                 <rect key="frame" x="0.0" y="44" width="414" height="740"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENA-Ew-6ZH">
@@ -375,6 +375,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="E9K-uS-Ect"/>
+                    <connections>
+                        <outlet property="photoImage" destination="Ikt-jX-neM" id="Bhy-Vg-kPW"/>
+                        <outlet property="uploadButton" destination="ENA-Ew-6ZH" id="3zJ-bK-vjW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HyZ-YH-vhT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
