@@ -26,7 +26,9 @@ class HomeViewController: UIViewController {
     
     func bindViewModel() {
         let input = HomeViewmodel.Input(logoutTrigger: logoutButton.rx.tap.asDriver())
-        guard let viewModel = viewModel else {return}
+        guard let viewModel = viewModel else {
+            print("viewmodel nil")
+            return}
         let output = viewModel.transform(input: input)
         output.logout.drive()
             .disposed(by: bag)

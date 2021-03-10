@@ -96,7 +96,7 @@
         <!--Library-->
         <scene sceneID="dH7-rX-5Yt">
             <objects>
-                <viewController id="PAQ-mI-jRQ" customClass="LibraryViewController" customModule="Photogram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LibraryViewController" id="PAQ-mI-jRQ" customClass="LibraryViewController" customModule="Photogram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h2H-8F-obt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -130,7 +130,7 @@
         <!--Search-->
         <scene sceneID="4Vf-My-g2f">
             <objects>
-                <viewController id="w22-XV-Ceo" customClass="SearchViewController" customModule="Photogram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" id="w22-XV-Ceo" customClass="SearchViewController" customModule="Photogram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RZC-Nh-G3S">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -161,10 +161,26 @@
             </objects>
             <point key="canvasLocation" x="725" y="123"/>
         </scene>
-        <!--Photogram Tabbar Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="JmI-Ox-dPX">
+            <objects>
+                <navigationController id="bWa-JM-OdE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uxc-JD-k6A">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="jQk-7W-WAO" kind="relationship" relationship="rootViewController" id="Qtg-ae-159"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yzU-Se-wtR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-883" y="-459"/>
+        </scene>
+        <!--Home Tabbar Controller-->
         <scene sceneID="Iqy-xB-S3j">
             <objects>
-                <tabBarController storyboardIdentifier="PhotogramTabbarController" id="jQk-7W-WAO" customClass="PhotogramTabbarController" customModule="Photogram" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeTabbarController" id="jQk-7W-WAO" customClass="HomeTabbarController" customModule="Photogram" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="m11-xM-M4K"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OSU-ec-5EX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
