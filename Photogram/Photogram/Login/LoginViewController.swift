@@ -31,10 +31,11 @@ class LoginViewController: UIViewController {
     func bindViewModel() {
         let input = LoginViewModel.Input(username: usernameTextField.rx.text.orEmpty.asDriver(),
                                          password: passwordTextField.rx.text.orEmpty.asDriver(), loginTrigger: logginButton.rx.tap.asDriver(), signUpTrigger: signUpButton.rx.tap.asDriver())
-        let output = viewModel?.transform(input: input)
-        output?.login.drive()
+        guard viewModel != nil else {return}
+        let output = viewModel!.transform(input: input)
+        output.login.drive()
             .disposed(by: bag)
-        output?.signUp.drive()
+        output.signUp.drive()
             .disposed(by: bag)
     }
 }
