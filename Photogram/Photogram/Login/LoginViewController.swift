@@ -20,34 +20,22 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var logginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     
-    var viewModel: LoginViewModel!
-    private var navigator: DefaultLoginNavigator?
+    var viewModel: LoginViewModel?
     private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindViewModel()
+    }
+    
+    func bindViewModel() {
         let input = LoginViewModel.Input(username: usernameTextField.rx.text.orEmpty.asDriver(),
                                          password: passwordTextField.rx.text.orEmpty.asDriver(), loginTrigger: logginButton.rx.tap.asDriver(), signUpTrigger: signUpButton.rx.tap.asDriver())
-        navigator = DefaultLoginNavigator(navigationController: self.navigationController ?? UINavigationController())
-        viewModel = LoginViewModel(navigator: navigator!)
+        guard let viewModel = viewModel else {return}
         let output = viewModel.transform(input: input)
         output.login.drive()
             .disposed(by: bag)
         output.signUp.drive()
             .disposed(by: bag)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(false)
-        if Auth.auth().currentUser != nil {
-            self.navigator = DefaultLoginNavigator(navigationController: self.navigationController ?? UINavigationController())
-            self.navigator?.toHomeView()
-        }
-    }
-    
-    // MARK: -action
-    @IBAction func signUp(_ sender: Any) {
-    }
-    @IBAction func login(_ sender: Any) {
     }
 }

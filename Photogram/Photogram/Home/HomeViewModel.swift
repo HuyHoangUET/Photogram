@@ -13,7 +13,7 @@ import RxCocoa
 
 class HomeViewmodel: ViewModelType {
     private var bag = DisposeBag()
-    private let navigator: HomeNavigator
+    var navigator: HomeNavigator
     
     init(navigator: HomeNavigator) {
         self.navigator = navigator
@@ -29,7 +29,14 @@ class HomeViewmodel: ViewModelType {
     
     func transform(input: Input) -> Output {
         let logout = input.logoutTrigger
-            .do(onNext: navigator.logout)
+            .do(onNext: {
+                do {
+                    try Auth.auth().signOut()
+                    self.navigator.logout()
+                } catch {
+                    print("error")
+                }
+            })
         return Output(logout: logout)
     }
 }

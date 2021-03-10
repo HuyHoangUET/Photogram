@@ -32,12 +32,11 @@ class LoginViewModel: ViewModelType {
     
     func transform(input: Input) -> Output {
         let usernameAndPassword = Driver.combineLatest(input.username, input.password)
-        var loginError = ""
         let login = input.loginTrigger.withLatestFrom(usernameAndPassword)
             .map { (username, password) in
                 Auth.auth().signIn(withEmail: username, password: password) {authResult, error in
                     if let error = error as NSError? {
-                        loginError = error.localizedDescription
+                        self.navigator.presentAlert(error: error)
                     } else {
                         self.navigator.toHomeView()
                     }

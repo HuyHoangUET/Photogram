@@ -16,26 +16,19 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var photoCollectionView: UICollectionView!
     @IBOutlet weak var logoutButton: UIButton!
     
-    private var viewModel: HomeViewmodel!
-    private var navigator: DefaultHomeNavigator?
+    var viewModel: HomeViewmodel?
     private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindViewModel()
+    }
+    
+    func bindViewModel() {
         let input = HomeViewmodel.Input(logoutTrigger: logoutButton.rx.tap.asDriver())
-        navigator = DefaultHomeNavigator(navigationController: self.navigationController ?? UINavigationController())
-        viewModel = HomeViewmodel(navigator: navigator!)
+        guard let viewModel = viewModel else {return}
         let output = viewModel.transform(input: input)
         output.logout.drive()
             .disposed(by: bag)
-    }
-    
-    // MARK: -action
-    @IBAction func logout(_ sender: Any) {
-        do {
-            try Auth.auth().signOut()
-        } catch {
-            print("error")
-        }
     }
 }

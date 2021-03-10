@@ -9,21 +9,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home Navigator-->
+        <!--Home-->
         <scene sceneID="fgo-JB-fxr">
             <objects>
                 <navigationController id="MWn-1V-r92" customClass="HomeNavigator" customModule="Photogram" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" selectedImage="house.fill" catalog="system" id="SJB-wq-CpY"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AEl-U9-Oo3">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="sW2-Vg-LVb" kind="relationship" relationship="rootViewController" id="JA9-en-xah"/>
+                        <segue destination="sW2-Vg-LVb" kind="relationship" relationship="rootViewController" id="WPL-QJ-QOq"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FS2-14-Qlq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-648" y="-40"/>
+            <point key="canvasLocation" x="725" y="-1181"/>
         </scene>
         <!--home-->
         <scene sceneID="X2m-dR-Y3X">
@@ -34,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xQS-4d-8Hv">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="d1r-rT-65V">
                                     <size key="itemSize" width="128" height="128"/>
@@ -67,9 +68,13 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rsm-qu-cD2">
+                                <rect key="frame" x="255" y="239" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="49Z-V4-Byl"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="49Z-V4-Byl" firstAttribute="trailing" secondItem="xQS-4d-8Hv" secondAttribute="trailing" id="Amc-j0-8qL"/>
                             <constraint firstItem="xQS-4d-8Hv" firstAttribute="top" secondItem="49Z-V4-Byl" secondAttribute="top" id="ifY-Vr-VkF"/>
@@ -77,35 +82,112 @@
                             <constraint firstItem="xQS-4d-8Hv" firstAttribute="leading" secondItem="49Z-V4-Byl" secondAttribute="leading" id="sM8-Yk-r4F"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="home" id="jDZ-8t-iUQ">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="JJV-Yp-wln">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Eko-Rt-kKU">
-                                <rect key="frame" x="346" y="7" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                <state key="normal" title="Logout"/>
-                                <connections>
-                                    <action selector="logout:" destination="sW2-Vg-LVb" eventType="touchUpInside" id="WPT-wy-uiZ"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <tabBarItem key="tabBarItem" title="Home" selectedImage="house.fill" catalog="system" id="Nmd-Nt-ljk"/>
+                    <navigationItem key="navigationItem" title="home" id="jDZ-8t-iUQ"/>
                     <connections>
-                        <outlet property="logoutButton" destination="Eko-Rt-kKU" id="LnD-Sn-mq3"/>
+                        <outlet property="logoutButton" destination="rsm-qu-cD2" id="GBk-6O-u8Z"/>
                         <outlet property="photoCollectionView" destination="xQS-4d-8Hv" id="nz1-ld-SoR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ksV-XB-kmg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="237.68115942028987" y="-40.178571428571423"/>
+            <point key="canvasLocation" x="1477" y="-1181"/>
+        </scene>
+        <!--Library-->
+        <scene sceneID="dH7-rX-5Yt">
+            <objects>
+                <viewController id="PAQ-mI-jRQ" customClass="LibraryViewController" customModule="Photogram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h2H-8F-obt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="NYt-hm-I2f"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Library" selectedImage="folder.fill" catalog="system" id="bg6-gM-PUc"/>
+                    <navigationItem key="navigationItem" id="3A2-49-bQp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hEe-Pz-e63" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1480" y="123"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="A0V-cq-tFE">
+            <objects>
+                <navigationController id="F6F-dU-ihu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" selectedImage="magnifyingglass" catalog="system" id="dyG-TQ-Seu"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4i0-t2-6BO">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="w22-XV-Ceo" kind="relationship" relationship="rootViewController" id="Fuq-xX-jza"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QLO-fY-tae" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="725" y="-523"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="4Vf-My-g2f">
+            <objects>
+                <viewController id="w22-XV-Ceo" customClass="SearchViewController" customModule="Photogram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RZC-Nh-G3S">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="LRA-v2-xMM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Search" selectedImage="magnifyingglass" catalog="system" id="0Jf-BO-0ec"/>
+                    <navigationItem key="navigationItem" id="BJv-Ca-Vfv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ig-VA-ohH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1478" y="-524"/>
+        </scene>
+        <!--Library-->
+        <scene sceneID="6Gs-Sm-2TW">
+            <objects>
+                <navigationController id="8Yq-NU-4QH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Library" selectedImage="folder.fill" catalog="system" id="EZz-M4-LD1"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ckf-Jl-27K">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="PAQ-mI-jRQ" kind="relationship" relationship="rootViewController" id="hvq-o9-PAt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ulQ-wA-kGx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="725" y="123"/>
+        </scene>
+        <!--Photogram Tabbar Controller-->
+        <scene sceneID="Iqy-xB-S3j">
+            <objects>
+                <tabBarController storyboardIdentifier="PhotogramTabbarController" id="jQk-7W-WAO" customClass="PhotogramTabbarController" customModule="Photogram" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="m11-xM-M4K"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OSU-ec-5EX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="MWn-1V-r92" kind="relationship" relationship="viewControllers" id="QFd-E0-m2S"/>
+                        <segue destination="F6F-dU-ihu" kind="relationship" relationship="viewControllers" id="WDG-no-dVp"/>
+                        <segue destination="8Yq-NU-4QH" kind="relationship" relationship="viewControllers" id="mIb-MM-27u"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MJF-X2-VbF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-71" y="-459"/>
         </scene>
     </scenes>
     <resources>
+        <image name="folder.fill" catalog="system" width="128" height="97"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
