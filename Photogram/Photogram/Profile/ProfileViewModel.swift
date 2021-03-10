@@ -21,10 +21,12 @@ class ProfileViewmodel: ViewModelType {
     
     struct Input {
         let logoutTrigger: Driver<Void>
+        let postTrigger: Driver<Void>
     }
     
     struct Output {
         let logout: Driver<Void>
+        let toUploadView: Driver<Void>
     }
     
     func transform(input: Input) -> Output {
@@ -37,6 +39,7 @@ class ProfileViewmodel: ViewModelType {
                     print("error")
                 }
             })
+        
         return Output(logout: logout)
     }
 }

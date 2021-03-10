@@ -10,6 +10,7 @@ import UIKit
 
 protocol ProfileNavigator {
     func logout()
+    func toUploadView()
 }
 
 class DefaultProfileNavigator: ProfileNavigator {

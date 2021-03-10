@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var numberOfFollowersLabel: UILabel!
     @IBOutlet weak var numberOfFollwingLabel: UILabel!
-    @IBOutlet weak var postButton: UIButton!
+    @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var photoCollectonView: UICollectionView!
     
     var viewModel: ProfileViewmodel?
@@ -27,7 +27,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
-        designPostButton()
+        designUploadButton()
     }
     
     func bindViewModel() {
@@ -40,8 +40,8 @@ class ProfileViewController: UIViewController {
             .disposed(by: bag)
     }
     
-    func designPostButton() {
-        postButton.layer.cornerRadius = 5
-        postButton.layer.masksToBounds = true
+    func designUploadButton() {
+        uploadButton.layer.cornerRadius = 5
+        uploadButton.layer.masksToBounds = true
     }
 }

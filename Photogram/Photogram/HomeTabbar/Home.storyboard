@@ -198,10 +198,10 @@
                                                                     <constraint firstAttribute="width" secondItem="fIf-fs-Yte" secondAttribute="height" id="er7-lm-fmr"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vy6-rN-eSp">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vy6-rN-eSp">
                                                                 <rect key="frame" x="0.0" y="138" width="138" height="43.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -212,7 +212,7 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follewers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuV-uv-D0y">
                                                                 <rect key="frame" x="0.0" y="0.0" width="138" height="90.5"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d61-W4-Mla">
@@ -232,7 +232,7 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Following" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sa2-hU-SEr">
                                                                 <rect key="frame" x="0.0" y="0.0" width="138" height="90.5"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bin-80-3Rp">
@@ -264,7 +264,10 @@
                                                         <rect key="frame" x="10" y="0.0" width="394" height="103.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                                        <state key="normal" title="Post new photo"/>
+                                                        <state key="normal" title="Upload photo"/>
+                                                        <connections>
+                                                            <segue destination="Vam-Xf-y8Z" kind="show" id="wQS-pA-nJA"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -332,7 +335,7 @@
                         <outlet property="numberOfFollowersLabel" destination="d61-W4-Mla" id="jTb-eu-Z6b"/>
                         <outlet property="numberOfFollwingLabel" destination="bin-80-3Rp" id="mKZ-oZ-TJ0"/>
                         <outlet property="photoCollectonView" destination="NZQ-Ur-wCA" id="MMJ-uc-51w"/>
-                        <outlet property="postButton" destination="cJt-9Y-wue" id="HMa-2z-NTN"/>
+                        <outlet property="uploadButton" destination="cJt-9Y-wue" id="HMa-2z-NTN"/>
                         <outlet property="userImage" destination="fIf-fs-Yte" id="Og6-wE-Jes"/>
                         <outlet property="username" destination="vy6-rN-eSp" id="SPL-fO-nYx"/>
                     </connections>
@@ -340,6 +343,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nmt-jU-C20" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1476.8115942028987" y="798.88392857142856"/>
+        </scene>
+        <!--Upload View Controller-->
+        <scene sceneID="LYE-Dm-EWP">
+            <objects>
+                <viewController storyboardIdentifier="UploadViewController" id="Vam-Xf-y8Z" customClass="UploadViewController" customModule="Photogram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="22r-4P-pzr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ikt-jX-neM">
+                                <rect key="frame" x="71" y="163" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENA-Ew-6ZH">
+                                <rect key="frame" x="141" y="663" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Bbc-F1-3AE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="E9K-uS-Ect"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HyZ-YH-vhT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2277" y="799"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JmI-Ox-dPX">
