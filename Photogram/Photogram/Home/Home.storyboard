@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -180,7 +180,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="oCa-oV-Ape">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oCa-oV-Ape">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGy-OR-PLR">
@@ -255,21 +255,33 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V8j-Yt-UAp">
-                                        <rect key="frame" x="0.0" y="186.5" width="414" height="103.5"/>
+                                        <rect key="frame" x="0.0" y="191.5" width="414" height="103.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJt-9Y-wue">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWb-z4-toa">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="103.5"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                                <state key="normal" title="Post new image"/>
-                                            </button>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJt-9Y-wue">
+                                                        <rect key="frame" x="10" y="0.0" width="394" height="103.5"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                                        <state key="normal" title="Post new photo"/>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="cJt-9Y-wue" firstAttribute="top" secondItem="RWb-z4-toa" secondAttribute="top" id="I14-0Z-y3F"/>
+                                                    <constraint firstAttribute="trailing" secondItem="cJt-9Y-wue" secondAttribute="trailing" constant="10" id="POE-Ik-UUd"/>
+                                                    <constraint firstItem="cJt-9Y-wue" firstAttribute="leading" secondItem="RWb-z4-toa" secondAttribute="leading" constant="10" id="tE8-Sy-f9g"/>
+                                                    <constraint firstAttribute="bottom" secondItem="cJt-9Y-wue" secondAttribute="bottom" id="w8P-mM-3xb"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q3C-Z8-0iE">
-                                        <rect key="frame" x="0.0" y="295" width="414" height="430"/>
+                                        <rect key="frame" x="0.0" y="305" width="414" height="420"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NZQ-Ur-wCA">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="430"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="420"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="b0P-wk-Zgi">
                                                     <size key="itemSize" width="128" height="128"/>
@@ -298,7 +310,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HuS-m5-pAm"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="HuS-m5-pAm" firstAttribute="bottom" secondItem="oCa-oV-Ape" secondAttribute="bottom" id="2Gn-Hx-Xg9"/>
                             <constraint firstItem="HuS-m5-pAm" firstAttribute="trailing" secondItem="oCa-oV-Ape" secondAttribute="trailing" id="X6h-7a-7fX"/>
@@ -316,11 +328,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="editButton" destination="cJt-9Y-wue" id="HMa-2z-NTN"/>
                         <outlet property="logoutButton" destination="e7Z-Kx-eeB" id="3Ux-V6-z0d"/>
                         <outlet property="numberOfFollowersLabel" destination="d61-W4-Mla" id="jTb-eu-Z6b"/>
                         <outlet property="numberOfFollwingLabel" destination="bin-80-3Rp" id="mKZ-oZ-TJ0"/>
                         <outlet property="photoCollectonView" destination="NZQ-Ur-wCA" id="MMJ-uc-51w"/>
+                        <outlet property="postButton" destination="cJt-9Y-wue" id="HMa-2z-NTN"/>
                         <outlet property="userImage" destination="fIf-fs-Yte" id="Og6-wE-Jes"/>
                         <outlet property="username" destination="vy6-rN-eSp" id="SPL-fO-nYx"/>
                     </connections>
