@@ -35,6 +35,8 @@ class HomeTabbarController: UITabBarController{
         let profileView = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
         let profileNavigationController = UINavigationController(rootViewController: profileView)
         profileView.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.circle.fill"), tag: 4)
+        let profileNavigator = DefaultProfileNavigator(navigationController: profileNavigationController)
+        profileView.viewModel = ProfileViewmodel(navigator: profileNavigator)
         
         self.viewControllers = [homeNavigationController, searchNavigationController, libraryNavigationController, profileNavigationController]
         
