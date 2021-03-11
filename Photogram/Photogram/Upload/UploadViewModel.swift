@@ -11,26 +11,27 @@ import RxSwift
 import RxCocoa
 
 class UploadViewModel: ViewModelType {
-    private let bag = DisposeBag()
+    var navigator: UploadNavigator
+    let picker = UIImagePickerController()
+    
+    init(navigator: UploadNavigator) {
+        self.navigator = navigator
+    }
     
     struct Input {
-        let photoImageTriger: Observable<Void>
-        let photoImage: Observable<UIImage>
-        let uploadButtonTrigger: Observable<Void>
+        let chooseTriger: Driver<Void>
+        let uploadTrigger: Driver<Void>
     }
     
     struct Output {
-        let loadPhoto: Driver<Void>
+        let choosePhoto: Driver<Void>
     }
     
-//    func transform(input: Input) -> Output {
-//        var image = UIImage()
-//        input.photoImage
-//            .subscribe(onNext: {photoImage in
-//                image = photoImage
-//                
-//            })
-//            .disposed(by: bag)
-//        return Output(didUpload: <#T##Driver<Void>#>)
-//    }
+    func transform(input: Input) -> Output {
+        let choosePhoto = input.chooseTriger
+            .do(onNext: {
+                self.navigator.presentChoosePhoto(picker: self.picker)
+            })
+        return Output(choosePhoto: choosePhoto)
+    }
 }

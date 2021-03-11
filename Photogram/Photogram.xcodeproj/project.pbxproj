@@ -40,6 +40,7 @@
 		25BEC97325B9721500D7FA71 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC97225B9721500D7FA71 /* Account.swift */; };
 		25BEC97925B9723600D7FA71 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEC97825B9723600D7FA71 /* LoginViewModel.swift */; };
 		25BEC99725B98A0A00D7FA71 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25BEC99625B98A0A00D7FA71 /* GoogleService-Info.plist */; };
+		25FBB76625F9B671004A7FA6 /* UploadNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FBB76525F9B671004A7FA6 /* UploadNavigator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		25BEC97225B9721500D7FA71 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		25BEC97825B9723600D7FA71 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		25BEC99625B98A0A00D7FA71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		25FBB76525F9B671004A7FA6 /* UploadNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadNavigator.swift; sourceTree = "<group>"; };
 		A1011191A7FEAC85E3F0A6BE /* Pods-Photogram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photogram.debug.xcconfig"; path = "Target Support Files/Pods-Photogram/Pods-Photogram.debug.xcconfig"; sourceTree = "<group>"; };
 		A42EAE14D6BDAD4009EA7D4D /* Pods_Photogram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Photogram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A8D540CC10B32797FDDD29 /* Pods-Photogram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photogram.release.xcconfig"; path = "Target Support Files/Pods-Photogram/Pods-Photogram.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				25153FEF25F8CAD000F54772 /* UploadViewController.swift */,
 				25153FF625F8D08200F54772 /* UploadViewModel.swift */,
+				25FBB76525F9B671004A7FA6 /* UploadNavigator.swift */,
 			);
 			path = Upload;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				2576F5D025C0FD98001BA413 /* ViewModelType.swift in Sources */,
 				2503DDDA25F2079D00222BA3 /* LibraryViewController.swift in Sources */,
 				2576F61325F06FB6001BA413 /* HomeNavigator.swift in Sources */,
+				25FBB76625F9B671004A7FA6 /* UploadNavigator.swift in Sources */,
 				2563F14A25BA847F00A6767B /* HomeViewModel.swift in Sources */,
 				2576F63325F0D8DE001BA413 /* PhotoCollectionViewCell.swift in Sources */,
 				25153FDF25F8AE8F00F54772 /* ProfileViewController.swift in Sources */,
