@@ -12,7 +12,6 @@ import RxSwift
 import RxCocoa
 
 class ProfileViewmodel: ViewModelType {
-    private var bag = DisposeBag()
     var navigator: ProfileNavigator
     
     init(navigator: ProfileNavigator) {

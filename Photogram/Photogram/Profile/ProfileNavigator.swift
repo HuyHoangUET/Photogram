@@ -31,6 +31,8 @@ class DefaultProfileNavigator: ProfileNavigator {
     func toUploadView() {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let uploadView = storyboard.instantiateViewController(identifier: "UploadViewController") as UploadViewController
+        let navigator = DefaultUploadNavigator(navigationController: self.navigationController)
+        uploadView.viewModel = UploadViewModel(navigator: navigator)
         navigationController.pushViewController(uploadView, animated: true)
     }
     
