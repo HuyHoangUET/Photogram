@@ -336,6 +336,7 @@ PODS:
   - RxRelay (6.0.0):
     - RxSwift (= 6.0.0)
   - RxSwift (6.0.0)
+  - SwiftLint (0.42.0)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -343,6 +344,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - RxCocoa
   - RxSwift
+  - SwiftLint
 
 SPEC REPOS:
   trunk:
@@ -367,6 +369,7 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SwiftLint
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -390,7 +393,8 @@ SPEC CHECKSUMS:
   RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
   RxRelay: 8d593be109c06ea850df027351beba614b012ffb
   RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
+  SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
 
-PODFILE CHECKSUM: 46b52d86a662befeede82cc2ee940bbc0edfbe83
+PODFILE CHECKSUM: fd1e3ac5ff73156ae2e4d9fec8c78861ad164be7
 
 COCOAPODS: 1.10.0
