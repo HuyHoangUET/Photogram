@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol HomeTabbarNavigator {
-    func logout()
+    func logOut()
 }
 
 class DefaultHomeTabbarNavigator: HomeTabbarNavigator {
