@@ -14,7 +14,7 @@ class UploadViewController: UIViewController,
                             UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     var viewModel: UploadViewModel?
     private let bag = DisposeBag()
-    // MARK: -outlet
+    // MARK: outlet
     @IBOutlet weak var photoImage: UIImageView!
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var chooseButton: UIButton!
@@ -23,7 +23,7 @@ class UploadViewController: UIViewController,
         bindViewModel()
     }
     
-    func bindViewModel(){
+    func bindViewModel() {
         let input = UploadViewModel.Input(chooseTriger: chooseButton.rx.tap.asDriver(),
                                           uploadTrigger: uploadButton.rx.tap.asDriver())
         guard let viewModel = viewModel else {return}
@@ -34,8 +34,8 @@ class UploadViewController: UIViewController,
     }
     
     func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[.originalImage] as! UIImage
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        let image = info[.originalImage] as? UIImage
         self.photoImage.image = image
         self.chooseButton.isHidden = true
         picker.dismiss(animated: true, completion: nil)

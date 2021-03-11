@@ -12,7 +12,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -49,7 +48,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-    func autoLogin(windowScene: UIWindowScene){
+    func autoLogin(windowScene: UIWindowScene) {
         let window = UIWindow(windowScene: windowScene)
         if Auth.auth().currentUser != nil {
             let storyboard = UIStoryboard(name: "Home", bundle: nil)
@@ -58,7 +57,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.rootViewController = homeTabbar
         } else {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let loginView = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            guard let loginView = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else {return}
             let loginNavigationController = UINavigationController(rootViewController: loginView)
             let navigator = DefaultLoginNavigator(navigationController: loginNavigationController)
             loginView.viewModel = LoginViewModel(navigator: navigator)
@@ -70,4 +69,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 }
-

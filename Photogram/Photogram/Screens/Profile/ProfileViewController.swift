@@ -12,7 +12,7 @@ import RxSwift
 import RxCocoa
 
 class ProfileViewController: UIViewController {
-    // MARK: -outlet
+    // MARK: outlet
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var username: UILabel!

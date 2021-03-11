@@ -33,13 +33,13 @@ class DefaultLoginNavigator: LoginNavigator {
     
     func toRegisterView() {
         let storyboard = UIStoryboard(name: "Register", bundle: nil)
-        let registerView = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+        guard let registerView = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as? RegisterViewController else { return }
         navigationController.pushViewController(registerView, animated: true)
     }
     
     func presentAlert(error: NSError) {
-        let alertController:UIAlertController = UIAlertController(title: "Login failed!", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
-        let alertAction:UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:nil)
+        let alertController: UIAlertController = UIAlertController(title: "Login failed!", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+        let alertAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
         alertController.addAction(alertAction)
         navigationController.present(alertController, animated: true, completion: nil)
     }
