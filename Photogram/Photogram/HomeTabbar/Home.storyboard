@@ -359,6 +359,9 @@
                                 <state key="normal" title="Upload">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="upload:" destination="Vam-Xf-y8Z" eventType="touchUpInside" id="P8U-Zj-Z1w"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bbc-F1-3AE"/>
