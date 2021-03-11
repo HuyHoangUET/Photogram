@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class RegisterViewController: UIViewController {
-    // MARK: -outlet
+    // MARK: outlet
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var confirmPasswordText: UITextField!
@@ -24,7 +24,7 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    // MARK: -action
+    // MARK: action
     @IBAction func register(_ sender: Any) {
         if passwordText.text == confirmPasswordText.text {
             viewModel.requestRegister(email: emailText.text ?? "", password: passwordText.text ?? "", completetion: {error in

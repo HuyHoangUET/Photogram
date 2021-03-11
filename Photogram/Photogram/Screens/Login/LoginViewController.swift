@@ -12,7 +12,7 @@ import RxSwift
 import RxCocoa
 
 class LoginViewController: UIViewController {
-    // MARK: -outlet
+    // MARK: outlet
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var errorOfUsernameLabel: UILabel!

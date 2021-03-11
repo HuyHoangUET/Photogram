@@ -12,5 +12,5 @@ target 'Photogram' do
   # Firebase Authentication SDK
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
-
+  pod 'SwiftLint'
 end

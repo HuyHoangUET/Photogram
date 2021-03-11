@@ -34,7 +34,7 @@ class LoginViewModel: ViewModelType {
         let usernameAndPassword = Driver.combineLatest(input.username, input.password)
         let login = input.loginTrigger.withLatestFrom(usernameAndPassword)
             .map { (username, password) in
-                Auth.auth().signIn(withEmail: username, password: password) {authResult, error in
+                Auth.auth().signIn(withEmail: username, password: password) {_, error in
                     if let error = error as NSError? {
                         self.navigator.presentAlert(error: error)
                     } else {
@@ -47,4 +47,3 @@ class LoginViewModel: ViewModelType {
         return Output(login: login, signUp: signUp)
     }
 }
-
