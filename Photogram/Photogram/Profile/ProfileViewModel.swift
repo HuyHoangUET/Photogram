@@ -30,11 +30,11 @@ class ProfileViewmodel: ViewModelType {
     }
     
     func transform(input: Input) -> Output {
-        let logout = input.logoutTrigger
+        let logOut = input.logoutTrigger
             .do(onNext: {
                 do {
                     try Auth.auth().signOut()
-                    self.navigator.logout()
+                    self.navigator.logOut()
                 } catch {
                     print("error")
                 }
@@ -42,6 +42,6 @@ class ProfileViewmodel: ViewModelType {
         let toUploadView = input.uploadTrigger
             .do(onNext: navigator.toUploadView)
         
-        return Output(logout: logout, toUploadView: toUploadView)
+        return Output(logout: logOut, toUploadView: toUploadView)
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol ProfileNavigator {
-    func logout()
+    func logOut()
     func toUploadView()
 }
 
@@ -19,7 +19,7 @@ class DefaultProfileNavigator: ProfileNavigator {
         self.navigationController = navigationController
     }
     
-    func logout() {
+    func logOut() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let loginView = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
 //        let loginNavigationController = UINavigationController(rootViewController: loginView)
