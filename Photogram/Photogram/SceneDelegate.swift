@@ -50,23 +50,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func autoLogin(windowScene: UIWindowScene){
+        let window = UIWindow(windowScene: windowScene)
         if Auth.auth().currentUser != nil {
-            window = UIWindow(windowScene: windowScene)
             let storyboard = UIStoryboard(name: "Home", bundle: nil)
-            let homeView = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-            let homenavigationController = UINavigationController(rootViewController: homeView)
-            let navigator = DefaultHomeNavigator(navigationController:homenavigationController)
-            homeView.viewModel = HomeViewmodel(navigator: navigator)
-            window?.rootViewController = homenavigationController
+            // Tabbar
+            let homeTabbar = storyboard.instantiateViewController(identifier: "HomeTabbarController") as HomeTabbarController
+            window.rootViewController = homeTabbar
         } else {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let loginView = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
             let loginNavigationController = UINavigationController(rootViewController: loginView)
             let navigator = DefaultLoginNavigator(navigationController: loginNavigationController)
             loginView.viewModel = LoginViewModel(navigator: navigator)
-            window?.rootViewController = loginNavigationController
+            window.rootViewController = loginNavigationController
         }
-        window?.makeKeyAndVisible()
+        
+        self.window = window
+        window.makeKeyAndVisible()
     }
 
 }

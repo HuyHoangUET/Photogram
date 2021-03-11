@@ -20,23 +20,12 @@ class HomeViewmodel: ViewModelType {
     }
     
     struct Input {
-        let logoutTrigger: Driver<Void>
     }
     
     struct Output {
-        let logout: Driver<Void>
     }
     
     func transform(input: Input) -> Output {
-        let logout = input.logoutTrigger
-            .do(onNext: {
-                do {
-                    try Auth.auth().signOut()
-                    self.navigator.logout()
-                } catch {
-                    print("error")
-                }
-            })
-        return Output(logout: logout)
+        return Output()
     }
 }
