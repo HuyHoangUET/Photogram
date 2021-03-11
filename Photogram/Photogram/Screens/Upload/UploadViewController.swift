@@ -10,7 +10,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class UploadViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class UploadViewController: UIViewController,
+                            UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     var viewModel: UploadViewModel?
     private let bag = DisposeBag()
     // MARK: -outlet
@@ -23,7 +24,8 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate & 
     }
     
     func bindViewModel(){
-        let input = UploadViewModel.Input(chooseTriger: chooseButton.rx.tap.asDriver(), uploadTrigger: uploadButton.rx.tap.asDriver())
+        let input = UploadViewModel.Input(chooseTriger: chooseButton.rx.tap.asDriver(),
+                                          uploadTrigger: uploadButton.rx.tap.asDriver())
         guard let viewModel = viewModel else {return}
         viewModel.picker.delegate = self
         let output = viewModel.transform(input: input)
@@ -31,7 +33,8 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate & 
             .disposed(by: bag)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.originalImage] as! UIImage
         self.photoImage.image = image
         self.chooseButton.isHidden = true
