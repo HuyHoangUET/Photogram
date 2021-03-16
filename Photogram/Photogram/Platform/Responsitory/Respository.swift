@@ -10,14 +10,14 @@ import RxSwift
 import RxCocoa
 import Firebase
 
-protocol ResponsitoryType {
-    func signIn(account: Account) -> Single<Void>
+protocol RespositoryType {
+    func login(account: Account) -> Single<Void>
     func signUp(account: Account) -> Single<Void>
     func signOut() -> Single<Void>
 }
 
-final class Responsitory: ResponsitoryType {
-    func signIn(account: Account) -> Single<Void> {
+final class Respository: RespositoryType {
+    func login(account: Account) -> Single<Void> {
         return Single.create { single in
             Auth.auth().signIn(withEmail: account.username, password: account.password) {_, error in
                 if let error = error as NSError? {
