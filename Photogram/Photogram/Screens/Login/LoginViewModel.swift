@@ -34,8 +34,7 @@ class LoginViewModel: ViewModelType {
     
     func transform(input: Input) -> Output {
         let account = Driver.combineLatest(input.username,
-                                           input.password) {username,
-                                                            password in
+                                           input.password) {username, password in
             return Account(username: username, password: password)
         }
         let login = input.loginTrigger
@@ -44,8 +43,8 @@ class LoginViewModel: ViewModelType {
             .flatMap {account in
                 self.useCase.login(account: account)
             }
-            .asSingle()
-            .do(onSuccess: {
+            .asObservable()
+            .do(onNext: {_ in
                 self.navigator.toHomeView()
             }, onError: {error in
                 self.navigator.presentAlert(error: error as NSError)
