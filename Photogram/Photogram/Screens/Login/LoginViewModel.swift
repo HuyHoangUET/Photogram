@@ -12,7 +12,6 @@ import RxSwift
 import RxCocoa
 
 class LoginViewModel: ViewModelType {
-    private var bag = DisposeBag()
     private let navigator: LoginNavigator
     private let useCase: LoginUseCaseType
     
@@ -44,10 +43,10 @@ class LoginViewModel: ViewModelType {
                 self.useCase.login(account: account)
             }
             .asObservable()
-            .do(onNext: {_ in
-                self.navigator.toHomeView()
-            }, onError: {error in
-                self.navigator.presentAlert(error: error as NSError)
+            .do(onNext: {[weak self] in
+                self?.navigator.toHomeView()
+            }, onError: {[weak self] error in
+                self?.navigator.presentAlert(error: error as NSError)
             })
             .asDriver(onErrorDriveWith: .empty())
 
