@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 protocol LoginUseCaseType {
-    func signIn(account: Account) -> Single<Void>
+    func login(account: Account) -> Single<Void>
 }
 
 final class LoginUseCase<Respositopry>: LoginUseCaseType where Respositopry: RespositoryType {
@@ -19,7 +19,7 @@ final class LoginUseCase<Respositopry>: LoginUseCaseType where Respositopry: Res
     init(respository: Respositopry) {
         self.respository = respository
     }
-    func signIn(account: Account) -> Single<Void> {
-        return respository.signIn(account: account)
+    func login(account: Account) -> Single<Void> {
+        return respository.login(account: account)
     }
 }
