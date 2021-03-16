@@ -47,8 +47,8 @@ final class Responsitory: ResponsitoryType {
         return Single.create {single in
             do {
                 single(.success(try Auth.auth().signOut()))
-            } catch {
-                single(.failure(NSError()))
+            } catch let error {
+                print("signOut failed: \(error.localizedDescription)")
             }
             return Disposables.create()
         }
