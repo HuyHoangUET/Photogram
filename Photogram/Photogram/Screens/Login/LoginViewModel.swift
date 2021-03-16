@@ -33,18 +33,25 @@ class LoginViewModel: ViewModelType {
     }
     
     func transform(input: Input) -> Output {
-        let usernameAndPassword = Driver.combineLatest(input.username, input.password)
-        let login = input.loginTrigger.withLatestFrom(usernameAndPassword)
-            .map { (username, password) in
-                let account = Account(username: username, password: password)
+        let account = Driver.combineLatest(input.username,
+                                           input.password) {username,
+                                                            password in
+            return Account(username: username, password: password)
+        }
+        let login = input.loginTrigger
+            .asObservable()
+            .withLatestFrom(account)
+            .flatMap {account in
                 self.useCase.login(account: account)
-                    .subscribe(onSuccess: {
-                        self.navigator.toHomeView()
-                    }, onFailure: {error in
-                        self.navigator.presentAlert(error: error as NSError)
-                    })
-                    .disposed(by: self.bag)
             }
+            .asSingle()
+            .do(onSuccess: {
+                self.navigator.toHomeView()
+            }, onError: {error in
+                self.navigator.presentAlert(error: error as NSError)
+            })
+            .asDriver(onErrorDriveWith: .empty())
+
         let signUp = input.signUpTrigger
             .do(onNext: navigator.toRegisterView)
         return Output(login: login, signUp: signUp)
