@@ -25,6 +25,7 @@
 		25581B6526004B2F008D4504 /* Respository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25581B6426004B2F008D4504 /* Respository.swift */; };
 		25581B8B2600666C008D4504 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25581B8A2600666C008D4504 /* LoginUseCase.swift */; };
 		25581B9226006BEE008D4504 /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25581B9126006BEE008D4504 /* RegisterUseCase.swift */; };
+		25581B9526006CFF008D4504 /* ProfileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25581B9426006CFF008D4504 /* ProfileUseCase.swift */; };
 		2563F14A25BA847F00A6767B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2563F14925BA847F00A6767B /* HomeViewModel.swift */; };
 		2563F14D25BA848B00A6767B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2563F14C25BA848B00A6767B /* HomeViewController.swift */; };
 		2563F15025BA84B300A6767B /* LoginNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2563F14F25BA84B300A6767B /* LoginNavigator.swift */; };
@@ -65,6 +66,7 @@
 		25581B6426004B2F008D4504 /* Respository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Respository.swift; sourceTree = "<group>"; };
 		25581B8A2600666C008D4504 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		25581B9126006BEE008D4504 /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
+		25581B9426006CFF008D4504 /* ProfileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUseCase.swift; sourceTree = "<group>"; };
 		2563F14925BA847F00A6767B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		2563F14C25BA848B00A6767B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2563F14F25BA84B300A6767B /* LoginNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigator.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			children = (
 				25581B8A2600666C008D4504 /* LoginUseCase.swift */,
 				25581B9126006BEE008D4504 /* RegisterUseCase.swift */,
+				25581B9426006CFF008D4504 /* ProfileUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				25153FE325F8B02A00F54772 /* ProfileViewModel.swift in Sources */,
 				25581B9226006BEE008D4504 /* RegisterUseCase.swift in Sources */,
 				2563F16125BA8CC100A6767B /* RegisterViewModel.swift in Sources */,
+				25581B9526006CFF008D4504 /* ProfileUseCase.swift in Sources */,
 				2503DDD725F2069700222BA3 /* SearchViewController.swift in Sources */,
 				2576F61025F06F3E001BA413 /* RegisterNavigator.swift in Sources */,
 				2563F16425BA8CD200A6767B /* RegisterViewController.swift in Sources */,
