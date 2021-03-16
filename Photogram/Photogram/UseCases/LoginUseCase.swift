@@ -9,13 +9,11 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol AuthUseCaseType {
+protocol LoginUseCaseType {
     func signIn(account: Account) -> Single<Void>
-    func singUp(account: Account) -> Single<Void>
-    func signOut() -> Single<Void>
 }
 
-final class AuthUseCase<Respositopry>: AuthUseCaseType where Respositopry: RespositoryType {
+final class LoginUseCase<Respositopry>: LoginUseCaseType where Respositopry: RespositoryType {
     private let respository: Respositopry
     
     init(respository: Respositopry) {
@@ -23,13 +21,5 @@ final class AuthUseCase<Respositopry>: AuthUseCaseType where Respositopry: Respo
     }
     func signIn(account: Account) -> Single<Void> {
         return respository.signIn(account: account)
-    }
-    
-    func singUp(account: Account) -> Single<Void> {
-        return respository.signUp(account: account)
-    }
-    
-    func signOut() -> Single<Void> {
-        return respository.signOut()
     }
 }
