@@ -39,10 +39,10 @@ class LoginViewModel: ViewModelType {
         let login = input.loginTrigger
             .asObservable()
             .withLatestFrom(account)
-            .flatMap { [weak self] account in
-                (self?.useCase.login(account: account ))!
+            .flatMap { [weak self] account -> Observable<Void> in
+                guard let self = self else {return .empty()}
+                return (self.useCase.login(account: account)).asObservable()
             }
-            .asObservable()
             .do(onNext: {[weak self] in
                 self?.navigator.toHomeView()
             }, onError: {[weak self] error in
