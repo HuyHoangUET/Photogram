@@ -12,11 +12,12 @@ import RxSwift
 import RxCocoa
 
 class LoginViewModel: ViewModelType {
-    private var bag = DisposeBag()
     private let navigator: LoginNavigator
+    private let useCase: LoginUseCaseType
     
-    init(navigator: LoginNavigator) {
+    init(navigator: LoginNavigator, useCase: LoginUseCaseType) {
         self.navigator = navigator
+        self.useCase = useCase
     }
     
     struct Input {
@@ -31,17 +32,24 @@ class LoginViewModel: ViewModelType {
     }
     
     func transform(input: Input) -> Output {
-        let usernameAndPassword = Driver.combineLatest(input.username, input.password)
-        let login = input.loginTrigger.withLatestFrom(usernameAndPassword)
-            .map { (username, password) in
-                Auth.auth().signIn(withEmail: username, password: password) {_, error in
-                    if let error = error as NSError? {
-                        self.navigator.presentAlert(error: error)
-                    } else {
-                        self.navigator.toHomeView()
-                    }
-                }
+        let account = Driver.combineLatest(input.username,
+                                           input.password) {username, password in
+            return Account(username: username, password: password)
+        }
+        let login = input.loginTrigger
+            .asObservable()
+            .withLatestFrom(account)
+            .flatMap { [weak self] account -> Observable<Void> in
+                guard let self = self else {return .empty()}
+                return (self.useCase.login(account: account)).asObservable()
             }
+            .do(onNext: {[weak self] in
+                self?.navigator.toHomeView()
+            }, onError: {[weak self] error in
+                self?.navigator.presentAlert(error: error as NSError)
+            })
+            .asDriver(onErrorDriveWith: .empty())
+
         let signUp = input.signUpTrigger
             .do(onNext: navigator.toRegisterView)
         return Output(login: login, signUp: signUp)

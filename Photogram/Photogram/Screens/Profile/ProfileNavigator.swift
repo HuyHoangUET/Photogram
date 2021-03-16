@@ -24,7 +24,9 @@ class DefaultProfileNavigator: ProfileNavigator {
         guard let loginView = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else {return}
 //        let loginNavigationController = UINavigationController(rootViewController: loginView)
         let navigator = DefaultLoginNavigator(navigationController: self.navigationController)
-        loginView.viewModel = LoginViewModel(navigator: navigator)
+        let respository = Respository()
+        let useCase = LoginUseCase(respository: respository)
+        loginView.viewModel = LoginViewModel(navigator: navigator, useCase: useCase)
         navigationController.setViewControllers([loginView], animated: true)
     }
     

@@ -60,7 +60,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             guard let loginView = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else {return}
             let loginNavigationController = UINavigationController(rootViewController: loginView)
             let navigator = DefaultLoginNavigator(navigationController: loginNavigationController)
-            loginView.viewModel = LoginViewModel(navigator: navigator)
+            let respository = Respository()
+            let useCase = LoginUseCase(respository: respository)
+            loginView.viewModel = LoginViewModel(navigator: navigator, useCase: useCase)
             window.rootViewController = loginNavigationController
         }
         
