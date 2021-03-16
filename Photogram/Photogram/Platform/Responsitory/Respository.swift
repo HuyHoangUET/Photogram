@@ -19,7 +19,7 @@ protocol AbstractResponsitory {
 
 final class Responsitory<T: Account>: AbstractResponsitory {
     func signIn(account: T) -> Observable<NSError> {
-        return Observable.create{ observer in
+        return Observable.create { observer in
             Auth.auth().signIn(withEmail: account.username, password: account.password) {_, error in
                 if let error = error as NSError? {
                     observer.onNext(error)
@@ -34,7 +34,7 @@ final class Responsitory<T: Account>: AbstractResponsitory {
     }
     
     func signUp(account: T) -> Observable<NSError> {
-        return Observable.create{ observer in
+        return Observable.create { observer in
             Auth.auth().createUser(withEmail: account.username, password: account.password) { _, error in
                 if let error = error as NSError? {
                     observer.onNext(error)
@@ -49,7 +49,7 @@ final class Responsitory<T: Account>: AbstractResponsitory {
     }
     
     func signOut() -> Observable<Void> {
-        return Observable.create{ observer in
+        return Observable.create {_ in
             do {
                 try Auth.auth().signOut()
             } catch {
