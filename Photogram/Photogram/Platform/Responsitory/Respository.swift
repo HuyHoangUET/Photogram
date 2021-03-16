@@ -10,50 +10,45 @@ import RxSwift
 import RxCocoa
 import Firebase
 
-protocol AbstractResponsitory {
-    associatedtype T
-    func signIn(account: T) -> Observable<NSError>
-    func signUp(account: T) -> Observable<NSError>
-    func signOut() -> Observable<Void>
+protocol ResponsitoryType {
+    func signIn(account: Account) -> Single<Void>
+    func signUp(account: Account) -> Single<Void>
+    func signOut() -> Single<Void>
 }
 
-final class Responsitory<T: Account>: AbstractResponsitory {
-    func signIn(account: T) -> Observable<NSError> {
-        return Observable.create { observer in
+final class Responsitory: ResponsitoryType {
+    func signIn(account: Account) -> Single<Void> {
+        return Single.create { single in
             Auth.auth().signIn(withEmail: account.username, password: account.password) {_, error in
                 if let error = error as NSError? {
-                    observer.onNext(error)
-                    observer.onCompleted()
+                    single(.failure(error))
                 } else {
-                    observer.onNext(NSError())
-                    observer.onCompleted()
+                    single(.success(()))
                 }
             }
             return Disposables.create()
         }
     }
     
-    func signUp(account: T) -> Observable<NSError> {
-        return Observable.create { observer in
+    func signUp(account: Account) -> Single<Void> {
+        return Single.create { single in
             Auth.auth().createUser(withEmail: account.username, password: account.password) { _, error in
                 if let error = error as NSError? {
-                    observer.onNext(error)
-                    observer.onCompleted()
+                    single(.failure(error))
                 } else {
-                    observer.onNext(NSError())
-                    observer.onCompleted()
+                    single(.success(()))
                 }
             }
             return Disposables.create()
         }
     }
     
-    func signOut() -> Observable<Void> {
-        return Observable.create {_ in
+    func signOut() -> Single<Void> {
+        return Single.create {single in
             do {
-                try Auth.auth().signOut()
+                single(.success(try Auth.auth().signOut()))
             } catch {
-                print("error")
+                single(.failure(NSError()))
             }
             return Disposables.create()
         }
