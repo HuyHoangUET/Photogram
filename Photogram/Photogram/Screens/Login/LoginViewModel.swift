@@ -14,9 +14,11 @@ import RxCocoa
 class LoginViewModel: ViewModelType {
     private var bag = DisposeBag()
     private let navigator: LoginNavigator
+    private let useCase: LoginUseCaseType
     
-    init(navigator: LoginNavigator) {
+    init(navigator: LoginNavigator, useCase: LoginUseCaseType) {
         self.navigator = navigator
+        self.useCase = useCase
     }
     
     struct Input {
@@ -34,13 +36,14 @@ class LoginViewModel: ViewModelType {
         let usernameAndPassword = Driver.combineLatest(input.username, input.password)
         let login = input.loginTrigger.withLatestFrom(usernameAndPassword)
             .map { (username, password) in
-                Auth.auth().signIn(withEmail: username, password: password) {_, error in
-                    if let error = error as NSError? {
-                        self.navigator.presentAlert(error: error)
-                    } else {
+                let account = Account(username: username, password: password)
+                self.useCase.login(account: account)
+                    .subscribe(onSuccess: {
                         self.navigator.toHomeView()
-                    }
-                }
+                    }, onFailure: {error in
+                        self.navigator.presentAlert(error: error as NSError)
+                    })
+                    .disposed(by: self.bag)
             }
         let signUp = input.signUpTrigger
             .do(onNext: navigator.toRegisterView)
