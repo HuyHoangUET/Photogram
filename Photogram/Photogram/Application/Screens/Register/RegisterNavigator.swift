@@ -33,7 +33,9 @@ class DefaultRegisterNavigator: RegisterNavigator {
     }
     
     func presentConfirmPasswordAlert() {
-        let alertController: UIAlertController = UIAlertController(title: "Can't create a new account!", message: "Password confimation doesn't match password!", preferredStyle: UIAlertController.Style.alert)
+        let alertController: UIAlertController = UIAlertController(title: "Can't create a new account!",
+                                                                   message: "Password confimation doesn't match password!",
+                                                                   preferredStyle: UIAlertController.Style.alert)
         let alertAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
         alertController.addAction(alertAction)
         navigationController.present(alertController, animated: true, completion: nil)

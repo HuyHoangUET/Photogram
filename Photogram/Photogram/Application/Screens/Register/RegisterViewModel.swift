@@ -39,7 +39,7 @@ class RegisterViewModel: ViewModelType {
             .map {password, confirmPassword in
             if password == confirmPassword {
                 isConfirmSuccess = true
-            }else {
+            } else {
                 isConfirmSuccess = false
             }
         }
