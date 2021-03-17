@@ -51,9 +51,8 @@ final class Respository: RespositoryType {
                     }
                 }
             } else {
-                obsever.onNext("")
+                obsever.onNext("Password confimation doesn't match password!")
             }
-            obsever.onCompleted()
             return Disposables.create()
         }
     }

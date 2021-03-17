@@ -53,10 +53,11 @@ class RegisterViewModel: ViewModelType {
                 if text == nil {
                     self?.navigator.toLoggin()
                 } else {
-                    self?.navigator.presentConfirmPasswordAlert()
+                    self?.navigator.presentAlert(error: text ?? "")
                 }
             }, onError: {[weak self] error in
-                self?.navigator.presentAlert(error: error as NSError)
+                let errorString = error.localizedDescription
+                self?.navigator.presentAlert(error: errorString)
             })
             .asDriver(onErrorDriveWith: .empty())
         return Output(signUp: signUp)
