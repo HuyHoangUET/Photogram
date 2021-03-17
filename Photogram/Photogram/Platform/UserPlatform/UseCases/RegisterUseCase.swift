@@ -12,7 +12,7 @@ import RxCocoa
 <<<<<<< HEAD:Photogram/Photogram/Platform/UserPlatform/UseCases/RegisterUseCase.swift
 =======
 protocol RegisterUseCaseType {
-    func signUp(account: Account) -> Observable<Void>
+    func signUp(account: Account, isConfirmSuccess: Bool) -> Observable<String?>
 }
 
 >>>>>>> 43df87c... update RegisterViewModel:Photogram/Photogram/UseCases/RegisterUseCase.swift
@@ -22,7 +22,8 @@ final class RegisterUseCase<Respository>: RegisterUseCaseType where Respository:
     init(respository: Respository) {
         self.respository = respository
     }
-    func signUp(account: Account) -> Observable<Void> {
-        return respository.signUp(account: account)
+    func signUp(account: Account, isConfirmSuccess: Bool) -> Observable<String?> {
+        return respository.signUp(account: account,
+                                  isConfirmSuccess: isConfirmSuccess)
     }
 }

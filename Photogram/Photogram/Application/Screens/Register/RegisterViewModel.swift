@@ -27,7 +27,7 @@ class RegisterViewModel: ViewModelType {
     }
     
     struct Output {
-        let signUp: Driver<Void>
+        let signUp: Driver<String?>
     }
     
     func transform(input: Input) -> Output {
@@ -44,30 +44,21 @@ class RegisterViewModel: ViewModelType {
         }
         let isConfirmSuccessAccount = Driver.combineLatest(isConfirmSuccess, account)
         let signUp = input.registerTrigger.asObservable().withLatestFrom(isConfirmSuccessAccount)
-            .flatMap {[weak self] isConfirmSuccess, account -> Observable<Void> in
+            .flatMap {[weak self] isConfirmSuccess, account -> Observable<String?> in
                 guard let self = self else {return .empty()}
-                if isConfirmSuccess {
-                    return self.useCase.signUp(account: account)
-                } else {
-                    self.navigator.presentConfirmPasswordAlert()
-                    return .empty()
-                }
+                return self.useCase.signUp(account: account, isConfirmSuccess: isConfirmSuccess)
             }
-            .do(onNext: {[weak self] in
-                self?.navigator.toLoggin()
+            .asObservable()
+            .do(onNext: {[weak self] text in
+                if text == nil {
+                    self?.navigator.toLoggin()
+                } else {
+                    self?.navigator.presentConfirmPasswordAlert()
+                }
             }, onError: {[weak self] error in
                 self?.navigator.presentAlert(error: error as NSError)
             })
             .asDriver(onErrorDriveWith: .empty())
         return Output(signUp: signUp)
-    }
-    func requestRegister(email: String, password: String, completetion: @escaping (NSError) -> Void) {
-        Auth.auth().createUser(withEmail: email, password: password) { _, error in
-            if let error = error as NSError? {
-                completetion(error)
-            } else {
-                completetion(NSError())
-            }
-        }
     }
 }

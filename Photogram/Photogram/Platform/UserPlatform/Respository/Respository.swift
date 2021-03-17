@@ -16,8 +16,12 @@ protocol RespositoryType {
     func signUp(account: Account) -> Single<Void>
 =======
     func login(account: Account) -> Single<Void>
+<<<<<<< HEAD:Photogram/Photogram/Platform/UserPlatform/Respository/Respository.swift
     func signUp(account: Account) -> Observable<Void>
 >>>>>>> 43df87c... update RegisterViewModel:Photogram/Photogram/Platform/Responsitory/Respository.swift
+=======
+    func signUp(account: Account, isConfirmSuccess: Bool) -> Observable<String?>
+>>>>>>> f345009... fix func transform:Photogram/Photogram/Platform/Responsitory/Respository.swift
     func signOut() -> Single<Void>
 }
 
@@ -36,16 +40,20 @@ final class Respository: RespositoryType {
         }
     }
     
-    func signUp(account: Account) -> Observable<Void> {
+    func signUp(account: Account, isConfirmSuccess: Bool) -> Observable<String?> {
         return Observable.create { obsever in
-            Auth.auth().createUser(withEmail: account.username, password: account.password) { _, error in
-                if let error = error as NSError? {
-                    obsever.onError(error)
-                } else {
-                    obsever.onNext(())
+            if isConfirmSuccess {
+                Auth.auth().createUser(withEmail: account.username, password: account.password) { _, error in
+                    if let error = error as NSError? {
+                        obsever.onError(error)
+                    } else {
+                        obsever.onNext(nil)
+                    }
                 }
-                obsever.onCompleted()
+            } else {
+                obsever.onNext("")
             }
+            obsever.onCompleted()
             return Disposables.create()
         }
     }
