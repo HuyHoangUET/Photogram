@@ -61,6 +61,7 @@ class RegisterViewController: UIViewController {
                                             confirmPassword: confirmPasswordTextField.rx.text.orEmpty.asDriver(),
                                             registerTrigger: registerButton.rx.tap.asDriver())
         guard let viewModel = viewModel else {
+            print("viewModel nil")
             return
         }
         let output = viewModel.transform(input: input)

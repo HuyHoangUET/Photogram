@@ -34,17 +34,17 @@ class RegisterViewModel: ViewModelType {
         let account = Driver.combineLatest(input.username, input.password) {username, password in
             return Account(username: username, password: password)
         }
-        var isConfirmSuccess = true
-        _ = Driver.combineLatest(input.password, input.confirmPassword)
-            .map {password, confirmPassword in
+        let isConfirmSuccess = Driver.combineLatest(input.password, input.confirmPassword)
+            .map {password, confirmPassword -> Bool in
             if password == confirmPassword {
-                isConfirmSuccess = true
+                return true
             } else {
-                isConfirmSuccess = false
+                return false
             }
         }
-        let signUp = input.registerTrigger.asObservable().withLatestFrom(account)
-            .flatMap {[weak self] account -> Observable<Void> in
+        let isConfirmSuccessAccount = Driver.combineLatest(isConfirmSuccess, account)
+        let signUp = input.registerTrigger.asObservable().withLatestFrom(isConfirmSuccessAccount)
+            .flatMap {[weak self] isConfirmSuccess, account -> Observable<Void> in
                 guard let self = self else {return .empty()}
                 if isConfirmSuccess {
                     return self.useCase.signUp(account: account)

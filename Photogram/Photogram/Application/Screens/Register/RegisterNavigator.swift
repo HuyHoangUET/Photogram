@@ -22,7 +22,7 @@ class DefaultRegisterNavigator: RegisterNavigator {
     }
     
     func toLoggin() {
-        navigationController.dismiss(animated: true, completion: nil)
+        navigationController.popToRootViewController(animated: true)
     }
     
     func presentAlert(error: NSError) {
