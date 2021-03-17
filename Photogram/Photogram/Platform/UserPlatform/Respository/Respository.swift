@@ -11,17 +11,8 @@ import RxCocoa
 import Firebase
 
 protocol RespositoryType {
-<<<<<<< HEAD:Photogram/Photogram/Platform/UserPlatform/Respository/Respository.swift
     func login(account: Account) -> Observable<Void>
-    func signUp(account: Account) -> Single<Void>
-=======
-    func login(account: Account) -> Single<Void>
-<<<<<<< HEAD:Photogram/Photogram/Platform/UserPlatform/Respository/Respository.swift
-    func signUp(account: Account) -> Observable<Void>
->>>>>>> 43df87c... update RegisterViewModel:Photogram/Photogram/Platform/Responsitory/Respository.swift
-=======
     func signUp(account: Account, isConfirmSuccess: Bool) -> Observable<String?>
->>>>>>> f345009... fix func transform:Photogram/Photogram/Platform/Responsitory/Respository.swift
     func signOut() -> Single<Void>
 }
 
