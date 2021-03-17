@@ -139,7 +139,7 @@
 		252B5A5425B9261100CEBA85 /* Photogram */ = {
 			isa = PBXGroup;
 			children = (
-				258BEAF72601C06C00EFD71B /* Applicatoin */,
+				258BEAF72601C06C00EFD71B /* Application */,
 				25FBB79E25F9FFC7004A7FA6 /* Platform */,
 				258BEAFF2601CF7400EFD71B /* Domain */,
 				25FBB79F25F9FFE4004A7FA6 /* SupportFile */,
@@ -158,9 +158,9 @@
 		25581B892600660D008D4504 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				25581B8A2600666C008D4504 /* LoginUseCase.swift */,
-				25581B9126006BEE008D4504 /* RegisterUseCase.swift */,
-				25581B9426006CFF008D4504 /* ProfileUseCase.swift */,
+				258BEB242601DBC700EFD71B /* LoginUseCaseType.swift */,
+				258BEB272601DBD800EFD71B /* RegisterUseCaseType.swift */,
+				258BEB2A2601DBE400EFD71B /* ProfileUseCaseType.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -219,19 +219,20 @@
 			path = SupportViews;
 			sourceTree = "<group>";
 		};
-		258BEAF72601C06C00EFD71B /* Applicatoin */ = {
+		258BEAF72601C06C00EFD71B /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				25FBB79825F9FF27004A7FA6 /* App */,
 				25FBB79A25F9FF45004A7FA6 /* Screens */,
 				25FBB79925F9FF31004A7FA6 /* Base */,
 			);
-			path = Applicatoin;
+			path = Application;
 			sourceTree = "<group>";
 		};
 		258BEAFA2601C0F300EFD71B /* UserPlatform */ = {
 			isa = PBXGroup;
 			children = (
+				25581B60260049A5008D4504 /* Respository */,
 				258BEB232601DBB000EFD71B /* UseCases */,
 			);
 			path = UserPlatform;
@@ -276,9 +277,9 @@
 		258BEB232601DBB000EFD71B /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				258BEB242601DBC700EFD71B /* LoginUseCaseType.swift */,
-				258BEB272601DBD800EFD71B /* RegisterUseCaseType.swift */,
-				258BEB2A2601DBE400EFD71B /* ProfileUseCaseType.swift */,
+				25581B8A2600666C008D4504 /* LoginUseCase.swift */,
+				25581B9126006BEE008D4504 /* RegisterUseCase.swift */,
+				25581B9426006CFF008D4504 /* ProfileUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -341,7 +342,6 @@
 			children = (
 				258BEAFD2601C13900EFD71B /* PhotoPlatform */,
 				258BEAFA2601C0F300EFD71B /* UserPlatform */,
-				25581B60260049A5008D4504 /* Respository */,
 			);
 			path = Platform;
 			sourceTree = "<group>";
