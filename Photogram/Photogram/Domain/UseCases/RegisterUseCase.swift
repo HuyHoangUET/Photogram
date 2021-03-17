@@ -9,10 +9,6 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol RegisterUseCaseType {
-    func signUp(account: Account) -> Single<Void>
-}
-
 final class RegisterUseCase<Respository>: RegisterUseCaseType where Respository: RespositoryType {
     private let respository: Respository
     

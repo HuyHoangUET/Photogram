@@ -9,10 +9,6 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol ProfileUseCaseType {
-    func signOut() -> Single<Void>
-}
-
 final class ProfileUseCase<Respository>: ProfileUseCaseType where Respository: RespositoryType {
     private let respository: Respository
     

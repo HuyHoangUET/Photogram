@@ -9,10 +9,6 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol LoginUseCaseType {
-    func login(account: Account) -> Observable<Void>
-}
-
 final class LoginUseCase<Respositopry>: LoginUseCaseType where Respositopry: RespositoryType {
     private let respository: Respositopry
     
