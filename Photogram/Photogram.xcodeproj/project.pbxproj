@@ -233,39 +233,21 @@
 			isa = PBXGroup;
 			children = (
 				258BEB232601DBB000EFD71B /* UseCases */,
-				258BEAFB2601C10500EFD71B /* Model */,
 			);
 			path = UserPlatform;
-			sourceTree = "<group>";
-		};
-		258BEAFB2601C10500EFD71B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				25FB9C3125FA018D00586D29 /* User.swift */,
-				25FB9C3425FA018D00586D29 /* Account.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		258BEAFD2601C13900EFD71B /* PhotoPlatform */ = {
 			isa = PBXGroup;
 			children = (
-				258BEAFE2601C14200EFD71B /* Model */,
 			);
 			path = PhotoPlatform;
-			sourceTree = "<group>";
-		};
-		258BEAFE2601C14200EFD71B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				25FB9C3225FA018D00586D29 /* Photo.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		258BEAFF2601CF7400EFD71B /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				258BEB2F2601DD3C00EFD71B /* Model */,
 				25581B892600660D008D4504 /* UseCases */,
 			);
 			path = Domain;
@@ -299,6 +281,16 @@
 				258BEB2A2601DBE400EFD71B /* ProfileUseCaseType.swift */,
 			);
 			path = UseCases;
+			sourceTree = "<group>";
+		};
+		258BEB2F2601DD3C00EFD71B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				25FB9C3225FA018D00586D29 /* Photo.swift */,
+				25FB9C3125FA018D00586D29 /* User.swift */,
+				25FB9C3425FA018D00586D29 /* Account.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		25BEC96725B971B700D7FA71 /* Login */ = {
