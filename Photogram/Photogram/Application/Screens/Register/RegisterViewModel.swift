@@ -27,7 +27,7 @@ class RegisterViewModel: ViewModelType {
     }
     
     struct Output {
-        let signUp: Driver<String?>
+        let signUp: Driver<NSError?>
         let error: Driver<NSError>
         let confirmPasswordError: Driver<String>
     }
@@ -47,21 +47,25 @@ class RegisterViewModel: ViewModelType {
                 return false
             }
         }
+        var isSuccess = true
         let isConfirmSuccessAccount = Driver.combineLatest(isConfirmSuccess, account)
         let signUp = input.registerTrigger.asObservable().withLatestFrom(isConfirmSuccessAccount)
-            .flatMap {[weak self] isConfirmSuccess, account -> Observable<String?> in
+            .flatMap {[weak self] isConfirmSuccess, account -> Observable<NSError?> in
                 guard let self = self else {return .empty()}
+                isSuccess = isConfirmSuccess
                 return self.useCase.signUp(account: account, isConfirmSuccess: isConfirmSuccess)
             }
             .asObservable()
-            .do(onNext: {[weak self] text in
-                if text == nil {
-                    self?.navigator.toLoggin()
+            .do(onNext: {[weak self] error in
+                if error == nil {
+                    if isSuccess {
+                        self?.navigator.toLoggin()
+                    } else {
+                        confirmPasswordErrorRelay.accept("Password confimation doesn't match password!")
+                    }
                 } else {
-                    confirmPasswordErrorRelay.accept(text ?? "")
+                    errorRelay.accept(error ?? NSError())
                 }
-            }, onError: {error in
-                errorRelay.accept(error as NSError)
             })
             .asDriver(onErrorDriveWith: .empty())
         return Output(signUp: signUp,
