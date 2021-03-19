@@ -11,7 +11,7 @@ import Firebase
 
 protocol RegisterNavigator {
     func toLoggin()
-    func displayAlert(errorString: String, error: NSError?)
+    func displayAlert(confirmPasswordError: String, error: NSError?)
 }
 
 class DefaultRegisterNavigator: RegisterNavigator {
@@ -25,10 +25,10 @@ class DefaultRegisterNavigator: RegisterNavigator {
         navigationController.popToRootViewController(animated: true)
     }
     
-    func displayAlert(errorString: String, error: NSError?) {
+    func displayAlert(confirmPasswordError: String, error: NSError?) {
         let views = navigationController.viewControllers
         let registerView: RegisterViewController = views.last as? RegisterViewController ?? RegisterViewController()
-        if errorString == "" {
+        if confirmPasswordError == "" {
             switch AuthErrorCode(rawValue: error?.code ?? 0) {
             case .missingEmail:
                 registerView.errorOfEmailLabel.text = error?.localizedDescription
@@ -43,7 +43,7 @@ class DefaultRegisterNavigator: RegisterNavigator {
                 alertHelper.presentAlert()
             }
         } else {
-            registerView.errorOfConfirmPasswordLabel.text = errorString
+            registerView.errorOfConfirmPasswordLabel.text = confirmPasswordError
         }
     }
 }
