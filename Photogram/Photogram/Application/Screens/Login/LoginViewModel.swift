@@ -27,7 +27,7 @@ class LoginViewModel: ViewModelType {
         let signUpTrigger: Driver<Void>
     }
     struct Output {
-        let login: Driver<Void>
+        let login: Driver<NSError?>
         let signUp: Driver<Void>
         let error: Driver<NSError>
     }
@@ -43,15 +43,16 @@ class LoginViewModel: ViewModelType {
         let login = input.loginTrigger
             .asObservable()
             .withLatestFrom(account)
-            .flatMap { [weak self] account -> Observable<Void> in
-                print("login tap")
+            .flatMap { [weak self] account -> Observable<NSError?> in
                 guard let self = self else {return .empty()}
                 return (self.useCase.login(account: account)).asObservable()
             }
-            .do(onNext: {[weak self] in
-                self?.navigator.toHomeView()
-            }, onError: { error in
-                errorDriver.accept(error as NSError)
+            .do(onNext: {[weak self] error in
+                if error == nil {
+                    self?.navigator.toHomeView()
+                } else {
+                    errorDriver.accept(error ?? NSError())
+                }
             })
             .asDriver(onErrorDriveWith: .empty())
         
