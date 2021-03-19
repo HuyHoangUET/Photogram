@@ -17,6 +17,7 @@
 		252B5A5D25B9261100CEBA85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 252B5A5B25B9261100CEBA85 /* Main.storyboard */; };
 		252B5A5F25B9261200CEBA85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 252B5A5E25B9261200CEBA85 /* Assets.xcassets */; };
 		252B5A6225B9261200CEBA85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 252B5A6025B9261200CEBA85 /* LaunchScreen.storyboard */; };
+		254948F926043D2600226317 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254948F826043D2600226317 /* AlertHelper.swift */; };
 		25581B6526004B2F008D4504 /* Respository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25581B6426004B2F008D4504 /* Respository.swift */; };
 		25581B8B2600666C008D4504 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25581B8A2600666C008D4504 /* LoginUseCase.swift */; };
 		25581B9226006BEE008D4504 /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25581B9126006BEE008D4504 /* RegisterUseCase.swift */; };
@@ -61,6 +62,7 @@
 		252B5A5E25B9261200CEBA85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		252B5A6125B9261200CEBA85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		252B5A6325B9261200CEBA85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		254948F826043D2600226317 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		25581B6426004B2F008D4504 /* Respository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Respository.swift; sourceTree = "<group>"; };
 		25581B8A2600666C008D4504 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		25581B9126006BEE008D4504 /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
@@ -147,6 +149,30 @@
 			path = Photogram;
 			sourceTree = "<group>";
 		};
+		254948F526043C5B00226317 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				254948F726043CB600226317 /* Helpers */,
+				254948F626043CAC00226317 /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		254948F626043CAC00226317 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		254948F726043CB600226317 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				254948F826043D2600226317 /* AlertHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		25581B60260049A5008D4504 /* Respository */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +248,7 @@
 		258BEAF72601C06C00EFD71B /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				254948F526043C5B00226317 /* Utilities */,
 				25FBB79825F9FF27004A7FA6 /* App */,
 				25FBB79A25F9FF45004A7FA6 /* Screens */,
 				25FBB79925F9FF31004A7FA6 /* Base */,
@@ -523,6 +550,7 @@
 				25153FF025F8CAD000F54772 /* UploadViewController.swift in Sources */,
 				2563F14D25BA848B00A6767B /* HomeViewController.swift in Sources */,
 				25581B8B2600666C008D4504 /* LoginUseCase.swift in Sources */,
+				254948F926043D2600226317 /* AlertHelper.swift in Sources */,
 				25FB9C3725FA018D00586D29 /* ViewModelType.swift in Sources */,
 				258BEB072601CFE200EFD71B /* HomeTabbarController.swift in Sources */,
 				258BEB0F2601CFFD00EFD71B /* ProfileNavigator.swift in Sources */,
