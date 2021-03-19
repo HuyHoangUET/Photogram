@@ -43,9 +43,6 @@ class DefaultLoginNavigator: LoginNavigator {
     }
     
     func displayAlert(error: NSError) {
-        let alertHelper = AlertHelper(error: error.localizedDescription, title: "Login", navigationController: navigationController)
-        alertHelper.presentAlert()
-        
         let views = navigationController.viewControllers
         let loginView: LoginViewController = views.last as? LoginViewController ?? LoginViewController()
         
@@ -59,7 +56,8 @@ class DefaultLoginNavigator: LoginNavigator {
         case .weakPassword:
             loginView.errorOfPasswordLabel.text = error.localizedDescription
         default:
-            print(error.localizedDescription)
+            let alertHelper = AlertHelper(error: error.localizedDescription, title: "Login", navigationController: navigationController)
+            alertHelper.presentAlert()
         }
     }
 }
