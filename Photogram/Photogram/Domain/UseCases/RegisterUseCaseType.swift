@@ -10,5 +10,5 @@ import RxSwift
 import RxCocoa
 
 protocol RegisterUseCaseType {
-    func signUp(account: Account) -> Single<Void>
+    func signUp(account: Account, isConfirmSuccess: Bool) -> Observable<String?>
 }

@@ -15,7 +15,9 @@ final class RegisterUseCase<Respository>: RegisterUseCaseType where Respository:
     init(respository: Respository) {
         self.respository = respository
     }
-    func signUp(account: Account) -> Single<Void> {
-        return respository.signUp(account: account)
+    
+    func signUp(account: Account, isConfirmSuccess: Bool) -> Observable<String?> {
+        return respository.signUp(account: account,
+                                  isConfirmSuccess: isConfirmSuccess)
     }
 }

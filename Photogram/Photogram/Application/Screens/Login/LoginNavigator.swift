@@ -34,6 +34,11 @@ class DefaultLoginNavigator: LoginNavigator {
     func toRegisterView() {
         let storyboard = UIStoryboard(name: "Register", bundle: nil)
         guard let registerView = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as? RegisterViewController else { return }
+        let navigator = DefaultRegisterNavigator(navigationController: self.navigationController)
+        let respository = Respository()
+        let useCase = RegisterUseCase(respository: respository)
+        
+        registerView.viewModel = RegisterViewModel(useCase: useCase, navigator: navigator)
         navigationController.pushViewController(registerView, animated: true)
     }
     
