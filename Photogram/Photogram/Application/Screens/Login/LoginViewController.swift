@@ -58,7 +58,6 @@ class LoginViewController: UIViewController {
             case .weakPassword:
                 loginView.errorOfPasswordLabel.text = error.localizedDescription
             default:
-                print("error")
                 AlertHelper.shared.presentAlert(title: "Login", error: error, view: self)
             }
         })

@@ -14,7 +14,6 @@ import Firebase
 protocol LoginNavigator {
     func toRegisterView()
     func toHomeView()
-    func displayAlert(error: NSError)
 }
 
 class DefaultLoginNavigator: LoginNavigator {
@@ -40,9 +39,4 @@ class DefaultLoginNavigator: LoginNavigator {
         
         registerView.viewModel = RegisterViewModel(useCase: useCase, navigator: navigator)
         navigationController.pushViewController(registerView, animated: true)
-    }
-    
-    func displayAlert(error: NSError) {
-        AlertHelper.shared.presentAlert(title: "Login", error: error, view: navigationController.topViewController ?? UIViewController())
-    }
-}
+    }}
