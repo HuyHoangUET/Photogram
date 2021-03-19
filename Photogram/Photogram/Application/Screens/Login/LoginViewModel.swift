@@ -29,6 +29,7 @@ class LoginViewModel: ViewModelType {
     struct Output {
         let login: Driver<Void>
         let signUp: Driver<Void>
+        let error: Driver<NSError>
     }
     
     func transform(input: Input) -> Output {
@@ -36,6 +37,8 @@ class LoginViewModel: ViewModelType {
                                            input.password) {username, password in
             return Account(username: username, password: password)
         }
+        let errorDriver = PublishRelay<NSError>()
+        
         let login = input.loginTrigger
             .asObservable()
             .withLatestFrom(account)
@@ -45,13 +48,15 @@ class LoginViewModel: ViewModelType {
             }
             .do(onNext: {[weak self] in
                 self?.navigator.toHomeView()
-            }, onError: {[weak self] error in
-                self?.navigator.displayAlert(error: error as NSError)
+            }, onError: { error in
+                errorDriver.accept(error as NSError)
             })
             .asDriver(onErrorDriveWith: .empty())
-
+        
         let signUp = input.signUpTrigger
             .do(onNext: navigator.toRegisterView)
-        return Output(login: login, signUp: signUp)
+        return Output(login: login,
+                      signUp: signUp,
+                      error: errorDriver.asDriver(onErrorDriveWith: .empty()))
     }
 }

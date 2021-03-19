@@ -43,21 +43,6 @@ class DefaultLoginNavigator: LoginNavigator {
     }
     
     func displayAlert(error: NSError) {
-        let views = navigationController.viewControllers
-        let loginView: LoginViewController = views.last as? LoginViewController ?? LoginViewController()
-        
-        switch AuthErrorCode(rawValue: error.code) {
-        case .missingEmail:
-            loginView.errorOfUsernameLabel.text = error.localizedDescription
-        case .invalidEmail:
-            loginView.errorOfUsernameLabel.text = error.localizedDescription
-        case .wrongPassword:
-            loginView.errorOfPasswordLabel.text = error.localizedDescription
-        case .weakPassword:
-            loginView.errorOfPasswordLabel.text = error.localizedDescription
-        default:
-            let alertHelper = AlertHelper(error: error.localizedDescription, title: "Login", navigationController: navigationController)
-            alertHelper.presentAlert()
-        }
+        AlertHelper.shared.presentAlert(title: "Login", error: error, view: navigationController.topViewController ?? UIViewController())
     }
 }

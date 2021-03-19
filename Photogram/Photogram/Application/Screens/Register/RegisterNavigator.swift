@@ -39,8 +39,7 @@ class DefaultRegisterNavigator: RegisterNavigator {
             case .weakPassword:
                 registerView.errorOfPasswordLabel.text = error?.localizedDescription
             default:
-                let alertHelper = AlertHelper(error: error?.localizedDescription ?? "", title: "Register", navigationController: navigationController)
-                alertHelper.presentAlert()
+                AlertHelper.shared.presentAlert(title: "Register", error: error ?? NSError(), view: navigationController.topViewController ?? UIViewController())
             }
         } else {
             registerView.errorOfConfirmPasswordLabel.text = confirmPasswordError
