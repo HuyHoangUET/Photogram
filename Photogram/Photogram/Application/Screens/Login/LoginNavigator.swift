@@ -47,7 +47,7 @@ class DefaultLoginNavigator: LoginNavigator {
         alertHelper.presentAlert()
         
         let views = navigationController.viewControllers
-        let loginView: LoginViewController = views.first as? LoginViewController ?? LoginViewController()
+        let loginView: LoginViewController = views.last as? LoginViewController ?? LoginViewController()
         
         switch AuthErrorCode(rawValue: error.code) {
         case .missingEmail:
@@ -55,6 +55,8 @@ class DefaultLoginNavigator: LoginNavigator {
         case .invalidEmail:
             loginView.errorOfUsernameLabel.text = error.localizedDescription
         case .wrongPassword:
+            loginView.errorOfPasswordLabel.text = error.localizedDescription
+        case .weakPassword:
             loginView.errorOfPasswordLabel.text = error.localizedDescription
         default:
             print(error.localizedDescription)

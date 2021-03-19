@@ -7,10 +7,11 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 protocol RegisterNavigator {
     func toLoggin()
-    func presentAlert(error: String)
+    func displayAlert(errorString: String, error: NSError?)
 }
 
 class DefaultRegisterNavigator: RegisterNavigator {
@@ -24,10 +25,25 @@ class DefaultRegisterNavigator: RegisterNavigator {
         navigationController.popToRootViewController(animated: true)
     }
     
-    func presentAlert(error: String) {
-        let alertController: UIAlertController = UIAlertController(title: "Can't create a new account!", message: error, preferredStyle: UIAlertController.Style.alert)
-        let alertAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
-        alertController.addAction(alertAction)
-        navigationController.present(alertController, animated: true, completion: nil)
+    func displayAlert(errorString: String, error: NSError?) {
+        let views = navigationController.viewControllers
+        let registerView: RegisterViewController = views.last as? RegisterViewController ?? RegisterViewController()
+        if errorString == "" {
+            switch AuthErrorCode(rawValue: error?.code ?? 0) {
+            case .missingEmail:
+                registerView.errorOfEmailLabel.text = error?.localizedDescription
+            case .invalidEmail:
+                registerView.errorOfEmailLabel.text = error?.localizedDescription
+            case .wrongPassword:
+                registerView.errorOfPasswordLabel.text = error?.localizedDescription
+            case .weakPassword:
+                registerView.errorOfPasswordLabel.text = error?.localizedDescription
+            default:
+                let alertHelper = AlertHelper(error: error?.localizedDescription ?? "", title: "Register", navigationController: navigationController)
+                alertHelper.presentAlert()
+            }
+        } else {
+            registerView.errorOfConfirmPasswordLabel.text = errorString
+        }
     }
 }
