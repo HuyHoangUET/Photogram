@@ -14,7 +14,7 @@ import Firebase
 protocol LoginNavigator {
     func toRegisterView()
     func toHomeView()
-    func presentAlert(error: NSError)
+    func displayAlert(error: NSError)
 }
 
 class DefaultLoginNavigator: LoginNavigator {
@@ -42,10 +42,22 @@ class DefaultLoginNavigator: LoginNavigator {
         navigationController.pushViewController(registerView, animated: true)
     }
     
-    func presentAlert(error: NSError) {
-        let alertController: UIAlertController = UIAlertController(title: "Login failed!", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
-        let alertAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
-        alertController.addAction(alertAction)
-        navigationController.present(alertController, animated: true, completion: nil)
+    func displayAlert(error: NSError) {
+        let alertHelper = AlertHelper(error: error.localizedDescription, title: "Login", navigationController: navigationController)
+        alertHelper.presentAlert()
+        
+        let views = navigationController.viewControllers
+        let loginView: LoginViewController = views.first as? LoginViewController ?? LoginViewController()
+        
+        switch AuthErrorCode(rawValue: error.code) {
+        case .missingEmail:
+            loginView.errorOfUsernameLabel.text = error.localizedDescription
+        case .invalidEmail:
+            loginView.errorOfUsernameLabel.text = error.localizedDescription
+        case .wrongPassword:
+            loginView.errorOfPasswordLabel.text = error.localizedDescription
+        default:
+            print(error.localizedDescription)
+        }
     }
 }

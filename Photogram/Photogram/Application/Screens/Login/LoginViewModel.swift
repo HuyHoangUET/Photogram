@@ -46,7 +46,7 @@ class LoginViewModel: ViewModelType {
             .do(onNext: {[weak self] in
                 self?.navigator.toHomeView()
             }, onError: {[weak self] error in
-                self?.navigator.presentAlert(error: error as NSError)
+                self?.navigator.displayAlert(error: error as NSError)
             })
             .asDriver(onErrorDriveWith: .empty())
 
