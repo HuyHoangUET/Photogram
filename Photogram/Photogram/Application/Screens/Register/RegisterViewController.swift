@@ -62,7 +62,7 @@ class RegisterViewController: UIViewController {
             case .weakPassword:
                 registerView.errorOfPasswordLabel.text = error.localizedDescription
             default:
-                AlertHelper.shared.presentAlert(title: "Login", error: error, view: self)
+                AlertHelper.shared.presentAlert(title: "Register", error: error, view: self)
             }
         })
     }
