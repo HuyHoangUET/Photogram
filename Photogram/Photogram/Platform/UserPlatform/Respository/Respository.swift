@@ -22,10 +22,10 @@ final class Respository: RespositoryType {
             Auth.auth().signIn(withEmail: account.username, password: account.password) {_, error in
                 if let error = error as NSError? {
                     obsever.onError(error)
+                    obsever.onCompleted()
                 } else {
                     obsever.onNext(())
                 }
-                obsever.onCompleted()
             }
             return Disposables.create()
         }

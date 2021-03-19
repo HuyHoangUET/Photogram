@@ -28,12 +28,17 @@ class RegisterViewModel: ViewModelType {
     
     struct Output {
         let signUp: Driver<String?>
+        let error: Driver<NSError>
+        let confirmPasswordError: Driver<String>
     }
     
     func transform(input: Input) -> Output {
         let account = Driver.combineLatest(input.username, input.password) {username, password in
             return Account(username: username, password: password)
         }
+        
+        let errorRelay = PublishRelay<NSError>()
+        let confirmPasswordErrorRelay = PublishRelay<String>()
         let isConfirmSuccess = Driver.combineLatest(input.password, input.confirmPassword)
             .map {password, confirmPassword -> Bool in
             if password == confirmPassword {
@@ -53,12 +58,14 @@ class RegisterViewModel: ViewModelType {
                 if text == nil {
                     self?.navigator.toLoggin()
                 } else {
-                    self?.navigator.displayAlert(confirmPasswordError: text ?? "", error: nil)
+                    confirmPasswordErrorRelay.accept(text ?? "")
                 }
-            }, onError: {[weak self] error in
-                self?.navigator.displayAlert(confirmPasswordError: "", error: error as NSError)
+            }, onError: {error in
+                errorRelay.accept(error as NSError)
             })
             .asDriver(onErrorDriveWith: .empty())
-        return Output(signUp: signUp)
+        return Output(signUp: signUp,
+                      error: errorRelay.asDriver(onErrorDriveWith: .empty()),
+                      confirmPasswordError: confirmPasswordErrorRelay.asDriver(onErrorDriveWith: .empty()))
     }
 }

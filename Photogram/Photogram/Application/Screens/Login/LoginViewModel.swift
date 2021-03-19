@@ -35,7 +35,8 @@ class LoginViewModel: ViewModelType {
     func transform(input: Input) -> Output {
         let account = Driver.combineLatest(input.username,
                                            input.password) {username, password in
-            return Account(username: username, password: password)
+            return Account(username: username,
+                           password: password)
         }
         let errorDriver = PublishRelay<NSError>()
         
@@ -43,6 +44,7 @@ class LoginViewModel: ViewModelType {
             .asObservable()
             .withLatestFrom(account)
             .flatMap { [weak self] account -> Observable<Void> in
+                print("login tap")
                 guard let self = self else {return .empty()}
                 return (self.useCase.login(account: account)).asObservable()
             }

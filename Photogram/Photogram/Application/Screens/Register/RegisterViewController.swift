@@ -41,5 +41,29 @@ class RegisterViewController: UIViewController {
         let output = viewModel.transform(input: input)
         output.signUp.drive()
             .disposed(by: bag)
+        output.error.drive(errorBinding)
+            .disposed(by: bag)
+        output.confirmPasswordError
+            .drive(onNext: {error in
+                self.errorOfConfirmPasswordLabel.text = error
+            })
+            .disposed(by: bag)
+    }
+    
+    var errorBinding: Binder<NSError> {
+        return Binder(self, binding: {registerView, error in
+            switch AuthErrorCode(rawValue: error.code) {
+            case .missingEmail:
+                registerView.errorOfEmailLabel.text = error.localizedDescription
+            case .invalidEmail:
+                registerView.errorOfEmailLabel.text = error.localizedDescription
+            case .wrongPassword:
+                registerView.errorOfPasswordLabel.text = error.localizedDescription
+            case .weakPassword:
+                registerView.errorOfPasswordLabel.text = error.localizedDescription
+            default:
+                AlertHelper.shared.presentAlert(title: "Login", error: error, view: self)
+            }
+        })
     }
 }
