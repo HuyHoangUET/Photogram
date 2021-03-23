@@ -44,7 +44,13 @@ class RegisterViewController: BaseViewController {
             .disposed(by: bag)
         output.confirmPasswordError
             .drive(onNext: {error in
-                self.errorOfConfirmPasswordLabel.text = error
+                if error == nil {
+                    self.registerButton.isEnabled = true
+                    self.errorOfConfirmPasswordLabel.text?.removeAll()
+                } else {
+                    self.registerButton.isEnabled = false
+                    self.errorOfConfirmPasswordLabel.text = error
+                }
             })
             .disposed(by: bag)
     }

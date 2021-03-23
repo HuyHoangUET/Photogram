@@ -12,7 +12,7 @@ import Firebase
 
 protocol RespositoryType {
     func login(account: Account) -> Observable<NSError?>
-    func signUp(account: Account, isConfirmSuccess: Bool) -> Observable<NSError?>
+    func signUp(account: Account) -> Observable<NSError?>
     func signOut() -> Single<Void>
 }
 
@@ -31,18 +31,14 @@ final class Respository: RespositoryType {
         }
     }
     
-    func signUp(account: Account, isConfirmSuccess: Bool) -> Observable<NSError?> {
+    func signUp(account: Account) -> Observable<NSError?> {
         return Observable.create { obsever in
-            if isConfirmSuccess {
-                Auth.auth().createUser(withEmail: account.username, password: account.password) { _, error in
-                    if let error = error as NSError? {
-                        obsever.onNext(error)
-                    } else {
-                        obsever.onNext(nil)
-                    }
+            Auth.auth().createUser(withEmail: account.username, password: account.password) { _, error in
+                if let error = error as NSError? {
+                    obsever.onNext(error)
+                } else {
+                    obsever.onNext(nil)
                 }
-            } else {
-                obsever.onNext(nil)
             }
             return Disposables.create()
         }

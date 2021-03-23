@@ -29,7 +29,7 @@ class RegisterViewModel: ViewModelType {
     struct Output {
         let signUp: Driver<NSError?>
         let error: Driver<NSError>
-        let confirmPasswordError: Driver<String>
+        let confirmPasswordError: Driver<String?>
     }
     
     func transform(input: Input) -> Output {
@@ -38,32 +38,24 @@ class RegisterViewModel: ViewModelType {
         }
         
         let errorRelay = PublishRelay<NSError>()
-        let confirmPasswordErrorRelay = PublishRelay<String>()
         let isConfirmSuccess = Driver.combineLatest(input.password, input.confirmPassword)
-            .map {password, confirmPassword -> Bool in
+            .map {password, confirmPassword -> String? in
             if password == confirmPassword {
-                return true
+                return nil
             } else {
-                return false
+                let errorConfirmPassword = "Password confimation doesn't match pasword!"
+                return errorConfirmPassword
             }
         }
-        var isSuccess = true
-        let isConfirmSuccessAccount = Driver.combineLatest(isConfirmSuccess, account)
-        let signUp = input.registerTrigger.asObservable().withLatestFrom(isConfirmSuccessAccount)
-            .flatMap {[weak self] isConfirmSuccess, account -> Observable<NSError?> in
+        let signUp = input.registerTrigger.asObservable().withLatestFrom(account)
+            .flatMap {[weak self] account -> Observable<NSError?> in
                 guard let self = self else {return .empty()}
-                isSuccess = isConfirmSuccess
-                return self.useCase.signUp(account: account, isConfirmSuccess: isConfirmSuccess)
+                return self.useCase.signUp(account: account)
             }
             .asObservable()
             .do(onNext: {[weak self] error in
                 if error == nil {
-                    if isSuccess {
-                        self?.navigator.toLogginView()
-                    } else {
-                        let errorConfirmPassword = "Password confimation doesn't match pasword!"
-                        confirmPasswordErrorRelay.accept(errorConfirmPassword)
-                    }
+                    self?.navigator.toLogginView()
                 } else {
                     errorRelay.accept(error ?? NSError())
                 }
@@ -71,6 +63,6 @@ class RegisterViewModel: ViewModelType {
             .asDriver(onErrorDriveWith: .empty())
         return Output(signUp: signUp,
                       error: errorRelay.asDriver(onErrorDriveWith: .empty()),
-                      confirmPasswordError: confirmPasswordErrorRelay.asDriver(onErrorDriveWith: .empty()))
+                      confirmPasswordError: isConfirmSuccess)
     }
 }
