@@ -13,8 +13,12 @@ class AlertHelper {
     static var shared = AlertHelper()
     
     func presentAlert(title: String, error: NSError, view: UIViewController) {
-        let alertController = UIAlertController(title: "\(title) error:", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
-        let alertAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)
+        let titleAlertAction = "Ok"
+        let titleAlertController = "\(title) error:"
+        
+        let alertController = UIAlertController(title: titleAlertController, message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+        
+        let alertAction = UIAlertAction(title: titleAlertAction, style: UIAlertAction.Style.default, handler: nil)
         alertController.addAction(alertAction)
         view.present(alertController, animated: true, completion: nil)
     }
