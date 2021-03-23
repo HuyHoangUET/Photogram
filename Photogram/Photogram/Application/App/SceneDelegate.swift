@@ -50,8 +50,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func autoLogin(windowScene: UIWindowScene) {
         let window = UIWindow(windowScene: windowScene)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else {return}
+        let loginViewController = LoginViewController.instantiate(from: "Main", withIdentifier: "LoginViewController")
         let loginNavigationController = UINavigationController(rootViewController: loginViewController)
         let navigator = DefaultLoginNavigator(navigationController: loginNavigationController)
         let respository = Respository()
