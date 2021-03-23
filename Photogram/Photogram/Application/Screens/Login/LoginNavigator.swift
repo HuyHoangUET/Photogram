@@ -24,19 +24,17 @@ class DefaultLoginNavigator: LoginNavigator {
     }
     
     func toHomeView() {
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let homeTabbar = storyboard.instantiateViewController(identifier: "HomeTabbarController") as HomeTabbarController
-        navigationController.pushViewController(homeTabbar, animated: true)
+        let homeTabbarController = HomeTabbarController.instantiate(from: "Home", withIdentifier: "HomeTabbarController")
+        navigationController.pushViewController(homeTabbarController, animated: true)
         navigationController.setNavigationBarHidden(true, animated: false)
     }
     
     func toRegisterView() {
-        let storyboard = UIStoryboard(name: "Register", bundle: nil)
-        guard let registerView = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as? RegisterViewController else { return }
+        let registerViewController = RegisterViewController.instantiate(from: "Register", withIdentifier: "RegisterViewController")
         let navigator = DefaultRegisterNavigator(navigationController: self.navigationController)
         let respository = Respository()
         let useCase = RegisterUseCase(respository: respository)
         
-        registerView.viewModel = RegisterViewModel(useCase: useCase, navigator: navigator)
-        navigationController.pushViewController(registerView, animated: true)
+        registerViewController.viewModel = RegisterViewModel(useCase: useCase, navigator: navigator)
+        navigationController.pushViewController(registerViewController, animated: true)
     }}
