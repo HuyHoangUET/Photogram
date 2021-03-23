@@ -67,7 +67,9 @@ class RegisterViewController: BaseViewController {
                 registerView.errorOfPasswordLabel.text = error.localizedDescription
             default:
                 let title = "Register"
-                AlertHelper.shared.presentAlert(title: title, error: error, view: self)
+                AlertHelper.shared.presentAlert(title: title,
+                                                error: error,
+                                                view: self)
             }
         })
     }

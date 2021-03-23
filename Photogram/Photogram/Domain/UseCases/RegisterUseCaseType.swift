@@ -8,7 +8,8 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import Firebase
 
 protocol RegisterUseCaseType {
-    func signUp(account: Account) -> Observable<NSError?>
+    func signUp(account: Account) -> Observable<AuthDataResult?>
 }
