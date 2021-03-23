@@ -34,7 +34,6 @@ class RegisterViewController: BaseViewController {
                                             confirmPassword: confirmPasswordTextField.rx.text.orEmpty.asDriver(),
                                             registerTrigger: registerButton.rx.tap.asDriver())
         guard let viewModel = viewModel else {
-            print("viewModel nil")
             return
         }
         let output = viewModel.transform(input: input)
@@ -67,7 +66,8 @@ class RegisterViewController: BaseViewController {
             case .weakPassword:
                 registerView.errorOfPasswordLabel.text = error.localizedDescription
             default:
-                AlertHelper.shared.presentAlert(title: "Register", error: error, view: self)
+                let title = "Register"
+                AlertHelper.shared.presentAlert(title: title, error: error, view: self)
             }
         })
     }
