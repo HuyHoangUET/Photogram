@@ -12,7 +12,7 @@ import RxCocoa
 
 class RegisterViewModel: ViewModelType {
     private let useCase: RegisterUseCaseType
-    private let navigator: RegisterNavigator password!"
+    private let navigator: RegisterNavigator
     
     init(useCase: RegisterUseCaseType, navigator: RegisterNavigator) {
         self.useCase = useCase
@@ -61,8 +61,8 @@ class RegisterViewModel: ViewModelType {
                     if isSuccess {
                         self?.navigator.toLogginView()
                     } else {
-                        let errorConfirmPassword = "Password confimation doesn't match
-                        confirmPasswordErrorRelay.accept(self?.errorConfirmPassword ?? "")
+                        let errorConfirmPassword = "Password confimation doesn't match pasword!"
+                        confirmPasswordErrorRelay.accept(errorConfirmPassword)
                     }
                 } else {
                     errorRelay.accept(error ?? NSError())
