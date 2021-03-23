@@ -59,7 +59,7 @@ class RegisterViewModel: ViewModelType {
             .do(onNext: {[weak self] error in
                 if error == nil {
                     if isSuccess {
-                        self?.navigator.toLoggin()
+                        self?.navigator.toLogginView()
                     } else {
                         confirmPasswordErrorRelay.accept("Password confimation doesn't match password!")
                     }

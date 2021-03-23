@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 protocol RegisterNavigator {
-    func toLoggin()
+    func toLogginView()
 }
 
 class DefaultRegisterNavigator: RegisterNavigator {
@@ -20,7 +20,7 @@ class DefaultRegisterNavigator: RegisterNavigator {
         self.navigationController = navigationController
     }
     
-    func toLoggin() {
+    func toLogginView() {
         navigationController.popToRootViewController(animated: true)
     }
 }
