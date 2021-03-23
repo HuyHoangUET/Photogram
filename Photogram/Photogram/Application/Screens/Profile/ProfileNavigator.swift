@@ -26,9 +26,8 @@ class DefaultProfileNavigator: ProfileNavigator {
         let respository = Respository()
         let useCase = LoginUseCase(respository: respository)
         loginView.viewModel = LoginViewModel(navigator: navigator, useCase: useCase)
-        let tabbar = navigationController.viewControllers.last?.tabBarController
-        tabbar?.navigationController?.setViewControllers([loginView], animated: true)
-//        navigationController.setViewControllers([loginView], animated: true)
+        let tabbar = navigationController.viewControllers.first?.tabBarController
+        tabbar?.navigationController?.popToRootViewController(animated: true)
     }
     
     func toUploadView() {

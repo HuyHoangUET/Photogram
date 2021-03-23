@@ -20,6 +20,8 @@ class HomeTabbarController: UITabBarController {
         let homeView = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
         let homeNavigationController = UINavigationController(rootViewController: homeView ?? HomeViewController())
         homeView?.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), tag: 1)
+        let homeNavigator = DefaultHomeNavigator(navigationController: homeNavigationController)
+        homeView?.viewModel = HomeViewmodel(navigator: homeNavigator)
         
         // Search
         guard let searchView = storyboard.instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController else {return}
@@ -39,8 +41,5 @@ class HomeTabbarController: UITabBarController {
         profileView?.viewModel = ProfileViewmodel(navigator: profileNavigator)
         
         self.viewControllers = [homeNavigationController, searchNavigationController, libraryNavigationController, profileNavigationController]
-        
-        let homeNavigator = DefaultHomeNavigator(navigationController: homeNavigationController)
-        homeView?.viewModel = HomeViewmodel(navigator: homeNavigator)
     }
 }

@@ -32,7 +32,6 @@
 		2576F61325F06FB6001BA413 /* HomeNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2576F61225F06FB6001BA413 /* HomeNavigator.swift */; };
 		2576F63325F0D8DE001BA413 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2576F63225F0D8DE001BA413 /* PhotoCollectionViewCell.swift */; };
 		258BEB052601CFE200EFD71B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 258BEB012601CFE200EFD71B /* Home.storyboard */; };
-		258BEB062601CFE200EFD71B /* HomeTabbarNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258BEB022601CFE200EFD71B /* HomeTabbarNavigator.swift */; };
 		258BEB072601CFE200EFD71B /* HomeTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258BEB032601CFE200EFD71B /* HomeTabbarController.swift */; };
 		258BEB0F2601CFFD00EFD71B /* ProfileNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258BEB0C2601CFFD00EFD71B /* ProfileNavigator.swift */; };
 		258BEB102601CFFD00EFD71B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258BEB0D2601CFFD00EFD71B /* ProfileViewController.swift */; };
@@ -77,7 +76,6 @@
 		2576F61225F06FB6001BA413 /* HomeNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigator.swift; sourceTree = "<group>"; };
 		2576F63225F0D8DE001BA413 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		258BEB012601CFE200EFD71B /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		258BEB022601CFE200EFD71B /* HomeTabbarNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabbarNavigator.swift; sourceTree = "<group>"; };
 		258BEB032601CFE200EFD71B /* HomeTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabbarController.swift; sourceTree = "<group>"; };
 		258BEB0C2601CFFD00EFD71B /* ProfileNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileNavigator.swift; sourceTree = "<group>"; };
 		258BEB0D2601CFFD00EFD71B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -285,7 +283,6 @@
 			isa = PBXGroup;
 			children = (
 				258BEB012601CFE200EFD71B /* Home.storyboard */,
-				258BEB022601CFE200EFD71B /* HomeTabbarNavigator.swift */,
 				258BEB032601CFE200EFD71B /* HomeTabbarController.swift */,
 			);
 			path = HomeTabbar;
@@ -563,7 +560,6 @@
 				2576F61025F06F3E001BA413 /* RegisterNavigator.swift in Sources */,
 				2563F16425BA8CD200A6767B /* RegisterViewController.swift in Sources */,
 				25153FF725F8D08200F54772 /* UploadViewModel.swift in Sources */,
-				258BEB062601CFE200EFD71B /* HomeTabbarNavigator.swift in Sources */,
 				25FB9C3525FA018D00586D29 /* User.swift in Sources */,
 				25581B6526004B2F008D4504 /* Respository.swift in Sources */,
 				25FB9C3825FA018D00586D29 /* Account.swift in Sources */,
