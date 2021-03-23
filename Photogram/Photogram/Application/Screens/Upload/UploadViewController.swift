@@ -10,10 +10,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class UploadViewController: UIViewController,
+class UploadViewController: BaseViewController,
                             UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     var viewModel: UploadViewModel?
-    private let bag = DisposeBag()
     // MARK: outlet
     @IBOutlet weak var photoImage: UIImageView!
     @IBOutlet weak var uploadButton: UIButton!

@@ -11,7 +11,7 @@ import Firebase
 import RxSwift
 import RxCocoa
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
     // MARK: outlet
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -21,7 +21,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     
     var viewModel: LoginViewModel?
-    private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()

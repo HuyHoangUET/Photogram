@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 class BaseViewController: UIViewController {
-    private let bag = DisposeBag()
+    let bag = DisposeBag()
     func bindViewmodel() {
     }
 }

@@ -11,7 +11,7 @@ import Firebase
 import RxSwift
 import RxCocoa
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: BaseViewController {
     // MARK: outlet
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var userImage: UIImageView!
@@ -22,7 +22,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var photoCollectonView: UICollectionView!
     
     var viewModel: ProfileViewmodel?
-    private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -11,7 +11,7 @@ import Firebase
 import RxSwift
 import RxCocoa
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: BaseViewController {
     // MARK: outlet
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -22,7 +22,6 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     
     var viewModel: RegisterViewModel?
-    private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()

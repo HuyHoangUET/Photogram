@@ -11,12 +11,11 @@ import Firebase
 import RxSwift
 import RxCocoa
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
     // MARK: outlet
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
     var viewModel: HomeViewmodel?
-    private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
