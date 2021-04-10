@@ -36,7 +36,11 @@ class LoginViewController: BaseViewController {
         
         let output = viewModel.transform(input: input)
         
-        output.login.drive()
+        output.login
+            .drive(onNext: {_ in
+                self.errorOfUsernameLabel.text?.removeAll()
+                self.errorOfPasswordLabel.text?.removeAll()
+        })
             .disposed(by: bag)
         output.signUp.drive()
             .disposed(by: bag)
