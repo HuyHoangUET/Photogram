@@ -49,6 +49,7 @@
 		25FB9C3725FA018D00586D29 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB9C3325FA018D00586D29 /* ViewModelType.swift */; };
 		25FB9C3825FA018D00586D29 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB9C3425FA018D00586D29 /* Account.swift */; };
 		25FBB76625F9B671004A7FA6 /* UploadNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FBB76525F9B671004A7FA6 /* UploadNavigator.swift */; };
+		EB0F2B4D26213CFD00C46FA6 /* AuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F2B4C26213CFD00C46FA6 /* AuthData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,7 @@
 		25FBB76525F9B671004A7FA6 /* UploadNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadNavigator.swift; sourceTree = "<group>"; };
 		A1011191A7FEAC85E3F0A6BE /* Pods-Photogram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photogram.debug.xcconfig"; path = "Target Support Files/Pods-Photogram/Pods-Photogram.debug.xcconfig"; sourceTree = "<group>"; };
 		A42EAE14D6BDAD4009EA7D4D /* Pods_Photogram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Photogram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB0F2B4C26213CFD00C46FA6 /* AuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthData.swift; sourceTree = "<group>"; };
 		F4A8D540CC10B32797FDDD29 /* Pods-Photogram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photogram.release.xcconfig"; path = "Target Support Files/Pods-Photogram/Pods-Photogram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -319,6 +321,7 @@
 				25FB9C3225FA018D00586D29 /* Photo.swift */,
 				25FB9C3125FA018D00586D29 /* User.swift */,
 				25FB9C3425FA018D00586D29 /* Account.swift */,
+				EB0F2B4C26213CFD00C46FA6 /* AuthData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				25FB9C3625FA018D00586D29 /* Photo.swift in Sources */,
 				25153FF025F8CAD000F54772 /* UploadViewController.swift in Sources */,
 				2563F14D25BA848B00A6767B /* HomeViewController.swift in Sources */,
+				EB0F2B4D26213CFD00C46FA6 /* AuthData.swift in Sources */,
 				25581B8B2600666C008D4504 /* LoginUseCase.swift in Sources */,
 				254948F926043D2600226317 /* AlertHelper.swift in Sources */,
 				25FB9C3725FA018D00586D29 /* ViewModelType.swift in Sources */,
