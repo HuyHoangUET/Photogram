@@ -11,19 +11,19 @@ import RxCocoa
 import Firebase
 
 protocol RespositoryType {
-    func login(account: Account) -> Observable<NSError?>
+    func login(account: Account) -> Observable<AuthData>
     func signUp(account: Account) -> Observable<AuthData>
     func signOut() -> Single<Void>
 }
 
 final class Respository: RespositoryType {
-    func login(account: Account) -> Observable<NSError?> {
+    func login(account: Account) -> Observable<AuthData> {
         return Observable.create { obsever in
-            Auth.auth().signIn(withEmail: account.username, password: account.password) {_, error in
+            Auth.auth().signIn(withEmail: account.username, password: account.password) {result, error in
                 if let error = error as NSError? {
-                    obsever.onNext(error)
+                    obsever.onNext(AuthData(result: nil, error: error))
                 } else {
-                    obsever.onNext(nil)
+                    obsever.onNext(AuthData(result: result, error: nil))
                 }
                 obsever.onCompleted()
             }

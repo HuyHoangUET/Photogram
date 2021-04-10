@@ -10,5 +10,5 @@ import RxSwift
 import RxCocoa
 
 protocol LoginUseCaseType {
-    func login(account: Account) -> Observable<NSError?>
+    func login(account: Account) -> Observable<AuthData>
 }

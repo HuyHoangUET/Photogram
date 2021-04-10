@@ -15,7 +15,7 @@ final class LoginUseCase<Respositopry>: LoginUseCaseType where Respositopry: Res
     init(respository: Respositopry) {
         self.respository = respository
     }
-    func login(account: Account) -> Observable<NSError?> {
+    func login(account: Account) -> Observable<AuthData> {
         return respository.login(account: account)
     }
 }
