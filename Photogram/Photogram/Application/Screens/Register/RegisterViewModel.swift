@@ -27,7 +27,7 @@ class RegisterViewModel: ViewModelType {
     }
     
     struct Output {
-        let signUp: Driver<AuthDataResult?>
+        let signUp: Driver<AuthData>
         let error: Driver<NSError>
         let confirmPasswordError: Driver<String?>
     }
@@ -48,15 +48,17 @@ class RegisterViewModel: ViewModelType {
             }
         }
         let signUp = input.registerTrigger.asObservable().withLatestFrom(account)
-            .flatMap {[weak self] account -> Observable<AuthDataResult?> in
+            .flatMap {[weak self] account -> Observable<AuthData> in
                 guard let self = self else {return .empty()}
                 return self.useCase.signUp(account: account)
             }
             .asObservable()
-            .do(onNext: {[weak self] _ in
-                self?.navigator.toLogginView()
-            }, onError: {error in
-                errorRelay.accept(error as NSError)
+            .do(onNext: {[weak self] authData in
+                if authData.error == nil {
+                    self?.navigator.toLogginView()
+                } else {
+                    errorRelay.accept(authData.error ?? NSError())
+                }
             })
             .asDriver(onErrorDriveWith: .empty())
         return Output(signUp: signUp,

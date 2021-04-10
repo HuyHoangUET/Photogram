@@ -9,10 +9,10 @@ import Foundation
 import FirebaseAuth
 
 class AuthData {
-    var result: AuthDataResult
-    var error: NSError
+    var result: AuthDataResult?
+    var error: NSError?
     
-    init(result: AuthDataResult, error: NSError) {
+    init(result: AuthDataResult?, error: NSError?) {
         self.result = result
         self.error = error
     }

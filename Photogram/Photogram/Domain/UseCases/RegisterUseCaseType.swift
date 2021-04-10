@@ -11,5 +11,5 @@ import RxCocoa
 import Firebase
 
 protocol RegisterUseCaseType {
-    func signUp(account: Account) -> Observable<AuthDataResult?>
+    func signUp(account: Account) -> Observable<AuthData>
 }

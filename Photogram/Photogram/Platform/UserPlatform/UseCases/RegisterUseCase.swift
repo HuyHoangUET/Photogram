@@ -17,7 +17,7 @@ final class RegisterUseCase<Respository>: RegisterUseCaseType where Respository:
         self.respository = respository
     }
     
-    func signUp(account: Account) -> Observable<AuthDataResult?> {
+    func signUp(account: Account) -> Observable<AuthData> {
         return respository.signUp(account: account)
     }
 }
