@@ -402,7 +402,7 @@
         <!--Navigation Controller-->
         <scene sceneID="JmI-Ox-dPX">
             <objects>
-                <navigationController id="bWa-JM-OdE" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="root" id="bWa-JM-OdE" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uxc-JD-k6A">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
