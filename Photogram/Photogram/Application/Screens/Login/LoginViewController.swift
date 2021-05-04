@@ -11,7 +11,7 @@ import Firebase
 import RxSwift
 import RxCocoa
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
     // MARK: outlet
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -21,7 +21,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     
     var viewModel: LoginViewModel?
-    private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +36,35 @@ class LoginViewController: UIViewController {
         
         let output = viewModel.transform(input: input)
         
-        output.login.drive()
+        output.login
+            .drive(onNext: {AuthData in
+                if AuthData.error == nil {
+                    self.errorOfUsernameLabel.text?.removeAll()
+                    self.errorOfPasswordLabel.text?.removeAll()
+                }
+            })
             .disposed(by: bag)
-        
         output.signUp.drive()
             .disposed(by: bag)
+        output.error
+            .drive(errorBinding)
+            .disposed(by: bag)
+    }
+    
+    var errorBinding: Binder<NSError> {
+        return Binder(self, binding: {(loginView, error) in
+            switch AuthErrorCode(rawValue: error.code) {
+            case .missingEmail:
+                loginView.errorOfUsernameLabel.text = error.localizedDescription
+            case .invalidEmail:
+                loginView.errorOfUsernameLabel.text = error.localizedDescription
+            case .wrongPassword:
+                loginView.errorOfPasswordLabel.text = error.localizedDescription
+            case .weakPassword:
+                loginView.errorOfPasswordLabel.text = error.localizedDescription
+            default:
+                AlertHelper.shared.presentAlert(title: "Login", error: error, view: self)
+            }
+        })
     }
 }

@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import Firebase
 
 final class RegisterUseCase<Respository>: RegisterUseCaseType where Respository: RespositoryType {
     private let respository: Respository
@@ -16,8 +17,7 @@ final class RegisterUseCase<Respository>: RegisterUseCaseType where Respository:
         self.respository = respository
     }
     
-    func signUp(account: Account, isConfirmSuccess: Bool) -> Observable<String?> {
-        return respository.signUp(account: account,
-                                  isConfirmSuccess: isConfirmSuccess)
+    func signUp(account: Account) -> Observable<AuthData> {
+        return respository.signUp(account: account)
     }
 }

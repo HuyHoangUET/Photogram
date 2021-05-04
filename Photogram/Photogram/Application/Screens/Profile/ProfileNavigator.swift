@@ -22,12 +22,12 @@ class DefaultProfileNavigator: ProfileNavigator {
     func logOut() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let loginView = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else {return}
-//        let loginNavigationController = UINavigationController(rootViewController: loginView)
         let navigator = DefaultLoginNavigator(navigationController: self.navigationController)
         let respository = Respository()
         let useCase = LoginUseCase(respository: respository)
         loginView.viewModel = LoginViewModel(navigator: navigator, useCase: useCase)
-        navigationController.setViewControllers([loginView], animated: true)
+        let tabbar = navigationController.viewControllers.first?.tabBarController
+        tabbar?.navigationController?.popToRootViewController(animated: true)
     }
     
     func toUploadView() {

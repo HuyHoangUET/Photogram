@@ -12,12 +12,15 @@
 		2503DDDA25F2079D00222BA3 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503DDD925F2079D00222BA3 /* LibraryViewController.swift */; };
 		25153FF025F8CAD000F54772 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25153FEF25F8CAD000F54772 /* UploadViewController.swift */; };
 		25153FF725F8D08200F54772 /* UploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25153FF625F8D08200F54772 /* UploadViewModel.swift */; };
+		2522E44B2609C92C001F659F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522E44A2609C92C001F659F /* BaseViewController.swift */; };
+		2522E44E2609CC8E001F659F /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522E44D2609CC8E001F659F /* ViewController+Extension.swift */; };
 		252B5A5625B9261100CEBA85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252B5A5525B9261100CEBA85 /* AppDelegate.swift */; };
 		252B5A5825B9261100CEBA85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252B5A5725B9261100CEBA85 /* SceneDelegate.swift */; };
 		252B5A5D25B9261100CEBA85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 252B5A5B25B9261100CEBA85 /* Main.storyboard */; };
 		252B5A5F25B9261200CEBA85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 252B5A5E25B9261200CEBA85 /* Assets.xcassets */; };
 		252B5A6225B9261200CEBA85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 252B5A6025B9261200CEBA85 /* LaunchScreen.storyboard */; };
-		25581B6526004B2F008D4504 /* Respository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25581B6426004B2F008D4504 /* Respository.swift */; };
+		254948F926043D2600226317 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254948F826043D2600226317 /* AlertHelper.swift */; };
+		25581B6526004B2F008D4504 /* UserRespository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25581B6426004B2F008D4504 /* UserRespository.swift */; };
 		25581B8B2600666C008D4504 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25581B8A2600666C008D4504 /* LoginUseCase.swift */; };
 		25581B9226006BEE008D4504 /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25581B9126006BEE008D4504 /* RegisterUseCase.swift */; };
 		25581B9526006CFF008D4504 /* ProfileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25581B9426006CFF008D4504 /* ProfileUseCase.swift */; };
@@ -31,7 +34,6 @@
 		2576F61325F06FB6001BA413 /* HomeNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2576F61225F06FB6001BA413 /* HomeNavigator.swift */; };
 		2576F63325F0D8DE001BA413 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2576F63225F0D8DE001BA413 /* PhotoCollectionViewCell.swift */; };
 		258BEB052601CFE200EFD71B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 258BEB012601CFE200EFD71B /* Home.storyboard */; };
-		258BEB062601CFE200EFD71B /* HomeTabbarNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258BEB022601CFE200EFD71B /* HomeTabbarNavigator.swift */; };
 		258BEB072601CFE200EFD71B /* HomeTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258BEB032601CFE200EFD71B /* HomeTabbarController.swift */; };
 		258BEB0F2601CFFD00EFD71B /* ProfileNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258BEB0C2601CFFD00EFD71B /* ProfileNavigator.swift */; };
 		258BEB102601CFFD00EFD71B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258BEB0D2601CFFD00EFD71B /* ProfileViewController.swift */; };
@@ -47,6 +49,7 @@
 		25FB9C3725FA018D00586D29 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB9C3325FA018D00586D29 /* ViewModelType.swift */; };
 		25FB9C3825FA018D00586D29 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB9C3425FA018D00586D29 /* Account.swift */; };
 		25FBB76625F9B671004A7FA6 /* UploadNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FBB76525F9B671004A7FA6 /* UploadNavigator.swift */; };
+		EB0F2B4D26213CFD00C46FA6 /* AuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F2B4C26213CFD00C46FA6 /* AuthData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +57,8 @@
 		2503DDD925F2079D00222BA3 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		25153FEF25F8CAD000F54772 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		25153FF625F8D08200F54772 /* UploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewModel.swift; sourceTree = "<group>"; };
+		2522E44A2609C92C001F659F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		2522E44D2609CC8E001F659F /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		252B5A5225B9261100CEBA85 /* Photogram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photogram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		252B5A5525B9261100CEBA85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		252B5A5725B9261100CEBA85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,7 +66,8 @@
 		252B5A5E25B9261200CEBA85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		252B5A6125B9261200CEBA85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		252B5A6325B9261200CEBA85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		25581B6426004B2F008D4504 /* Respository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Respository.swift; sourceTree = "<group>"; };
+		254948F826043D2600226317 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		25581B6426004B2F008D4504 /* UserRespository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRespository.swift; sourceTree = "<group>"; };
 		25581B8A2600666C008D4504 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		25581B9126006BEE008D4504 /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
 		25581B9426006CFF008D4504 /* ProfileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUseCase.swift; sourceTree = "<group>"; };
@@ -75,7 +81,6 @@
 		2576F61225F06FB6001BA413 /* HomeNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigator.swift; sourceTree = "<group>"; };
 		2576F63225F0D8DE001BA413 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		258BEB012601CFE200EFD71B /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		258BEB022601CFE200EFD71B /* HomeTabbarNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabbarNavigator.swift; sourceTree = "<group>"; };
 		258BEB032601CFE200EFD71B /* HomeTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabbarController.swift; sourceTree = "<group>"; };
 		258BEB0C2601CFFD00EFD71B /* ProfileNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileNavigator.swift; sourceTree = "<group>"; };
 		258BEB0D2601CFFD00EFD71B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +98,7 @@
 		25FBB76525F9B671004A7FA6 /* UploadNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadNavigator.swift; sourceTree = "<group>"; };
 		A1011191A7FEAC85E3F0A6BE /* Pods-Photogram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photogram.debug.xcconfig"; path = "Target Support Files/Pods-Photogram/Pods-Photogram.debug.xcconfig"; sourceTree = "<group>"; };
 		A42EAE14D6BDAD4009EA7D4D /* Pods_Photogram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Photogram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB0F2B4C26213CFD00C46FA6 /* AuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthData.swift; sourceTree = "<group>"; };
 		F4A8D540CC10B32797FDDD29 /* Pods-Photogram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photogram.release.xcconfig"; path = "Target Support Files/Pods-Photogram/Pods-Photogram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,10 +153,35 @@
 			path = Photogram;
 			sourceTree = "<group>";
 		};
+		254948F526043C5B00226317 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				254948F726043CB600226317 /* Helpers */,
+				254948F626043CAC00226317 /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		254948F626043CAC00226317 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2522E44D2609CC8E001F659F /* ViewController+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		254948F726043CB600226317 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				254948F826043D2600226317 /* AlertHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		25581B60260049A5008D4504 /* Respository */ = {
 			isa = PBXGroup;
 			children = (
-				25581B6426004B2F008D4504 /* Respository.swift */,
+				25581B6426004B2F008D4504 /* UserRespository.swift */,
 			);
 			path = Respository;
 			sourceTree = "<group>";
@@ -222,6 +253,7 @@
 		258BEAF72601C06C00EFD71B /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				254948F526043C5B00226317 /* Utilities */,
 				25FBB79825F9FF27004A7FA6 /* App */,
 				25FBB79A25F9FF45004A7FA6 /* Screens */,
 				25FBB79925F9FF31004A7FA6 /* Base */,
@@ -258,7 +290,6 @@
 			isa = PBXGroup;
 			children = (
 				258BEB012601CFE200EFD71B /* Home.storyboard */,
-				258BEB022601CFE200EFD71B /* HomeTabbarNavigator.swift */,
 				258BEB032601CFE200EFD71B /* HomeTabbarController.swift */,
 			);
 			path = HomeTabbar;
@@ -290,6 +321,7 @@
 				25FB9C3225FA018D00586D29 /* Photo.swift */,
 				25FB9C3125FA018D00586D29 /* User.swift */,
 				25FB9C3425FA018D00586D29 /* Account.swift */,
+				EB0F2B4C26213CFD00C46FA6 /* AuthData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -310,6 +342,7 @@
 			children = (
 				252B5A5525B9261100CEBA85 /* AppDelegate.swift */,
 				252B5A5725B9261100CEBA85 /* SceneDelegate.swift */,
+				2522E44A2609C92C001F659F /* BaseViewController.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -514,15 +547,19 @@
 				2503DDDA25F2079D00222BA3 /* LibraryViewController.swift in Sources */,
 				258BEB252601DBC700EFD71B /* LoginUseCaseType.swift in Sources */,
 				2576F61325F06FB6001BA413 /* HomeNavigator.swift in Sources */,
+				2522E44E2609CC8E001F659F /* ViewController+Extension.swift in Sources */,
 				25FBB76625F9B671004A7FA6 /* UploadNavigator.swift in Sources */,
 				2563F14A25BA847F00A6767B /* HomeViewModel.swift in Sources */,
 				2576F63325F0D8DE001BA413 /* PhotoCollectionViewCell.swift in Sources */,
 				258BEB102601CFFD00EFD71B /* ProfileViewController.swift in Sources */,
+				2522E44B2609C92C001F659F /* BaseViewController.swift in Sources */,
 				25BEC96D25B971EE00D7FA71 /* LoginViewController.swift in Sources */,
 				25FB9C3625FA018D00586D29 /* Photo.swift in Sources */,
 				25153FF025F8CAD000F54772 /* UploadViewController.swift in Sources */,
 				2563F14D25BA848B00A6767B /* HomeViewController.swift in Sources */,
+				EB0F2B4D26213CFD00C46FA6 /* AuthData.swift in Sources */,
 				25581B8B2600666C008D4504 /* LoginUseCase.swift in Sources */,
+				254948F926043D2600226317 /* AlertHelper.swift in Sources */,
 				25FB9C3725FA018D00586D29 /* ViewModelType.swift in Sources */,
 				258BEB072601CFE200EFD71B /* HomeTabbarController.swift in Sources */,
 				258BEB0F2601CFFD00EFD71B /* ProfileNavigator.swift in Sources */,
@@ -535,9 +572,8 @@
 				2576F61025F06F3E001BA413 /* RegisterNavigator.swift in Sources */,
 				2563F16425BA8CD200A6767B /* RegisterViewController.swift in Sources */,
 				25153FF725F8D08200F54772 /* UploadViewModel.swift in Sources */,
-				258BEB062601CFE200EFD71B /* HomeTabbarNavigator.swift in Sources */,
 				25FB9C3525FA018D00586D29 /* User.swift in Sources */,
-				25581B6526004B2F008D4504 /* Respository.swift in Sources */,
+				25581B6526004B2F008D4504 /* UserRespository.swift in Sources */,
 				25FB9C3825FA018D00586D29 /* Account.swift in Sources */,
 				258BEB2B2601DBE400EFD71B /* ProfileUseCaseType.swift in Sources */,
 				258BEB112601CFFD00EFD71B /* ProfileViewModel.swift in Sources */,
@@ -693,6 +729,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Photogram/SupportFile/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -712,6 +749,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Photogram/SupportFile/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

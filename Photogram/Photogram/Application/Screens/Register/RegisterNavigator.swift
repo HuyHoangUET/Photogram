@@ -7,10 +7,10 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 protocol RegisterNavigator {
-    func toLoggin()
-    func presentAlert(error: String)
+    func toLogginView()
 }
 
 class DefaultRegisterNavigator: RegisterNavigator {
@@ -20,14 +20,7 @@ class DefaultRegisterNavigator: RegisterNavigator {
         self.navigationController = navigationController
     }
     
-    func toLoggin() {
+    func toLogginView() {
         navigationController.popToRootViewController(animated: true)
-    }
-    
-    func presentAlert(error: String) {
-        let alertController: UIAlertController = UIAlertController(title: "Can't create a new account!", message: error, preferredStyle: UIAlertController.Style.alert)
-        let alertAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
-        alertController.addAction(alertAction)
-        navigationController.present(alertController, animated: true, completion: nil)
     }
 }

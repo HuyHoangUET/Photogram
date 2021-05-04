@@ -27,39 +27,42 @@ class RegisterViewModel: ViewModelType {
     }
     
     struct Output {
-        let signUp: Driver<String?>
+        let signUp: Driver<AuthData>
+        let error: Driver<NSError>
+        let confirmPasswordError: Driver<String?>
     }
     
     func transform(input: Input) -> Output {
         let account = Driver.combineLatest(input.username, input.password) {username, password in
             return Account(username: username, password: password)
         }
+        
+        let errorRelay = PublishRelay<NSError>()
         let isConfirmSuccess = Driver.combineLatest(input.password, input.confirmPassword)
-            .map {password, confirmPassword -> Bool in
+            .map {password, confirmPassword -> String? in
             if password == confirmPassword {
-                return true
+                return nil
             } else {
-                return false
+                let errorConfirmPassword = "Password confimation doesn't match pasword!"
+                return errorConfirmPassword
             }
         }
-        let isConfirmSuccessAccount = Driver.combineLatest(isConfirmSuccess, account)
-        let signUp = input.registerTrigger.asObservable().withLatestFrom(isConfirmSuccessAccount)
-            .flatMap {[weak self] isConfirmSuccess, account -> Observable<String?> in
+        let signUp = input.registerTrigger.asObservable().withLatestFrom(account)
+            .flatMap {[weak self] account -> Observable<AuthData> in
                 guard let self = self else {return .empty()}
-                return self.useCase.signUp(account: account, isConfirmSuccess: isConfirmSuccess)
+                return self.useCase.signUp(account: account)
             }
             .asObservable()
-            .do(onNext: {[weak self] text in
-                if text == nil {
-                    self?.navigator.toLoggin()
+            .do(onNext: {[weak self] authData in
+                if authData.error == nil {
+                    self?.navigator.toLogginView()
                 } else {
-                    self?.navigator.presentAlert(error: text ?? "")
+                    errorRelay.accept(authData.error ?? NSError())
                 }
-            }, onError: {[weak self] error in
-                let errorString = error.localizedDescription
-                self?.navigator.presentAlert(error: errorString)
             })
             .asDriver(onErrorDriveWith: .empty())
-        return Output(signUp: signUp)
+        return Output(signUp: signUp,
+                      error: errorRelay.asDriver(onErrorDriveWith: .empty()),
+                      confirmPasswordError: isConfirmSuccess)
     }
 }

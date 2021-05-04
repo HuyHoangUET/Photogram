@@ -27,31 +27,39 @@ class LoginViewModel: ViewModelType {
         let signUpTrigger: Driver<Void>
     }
     struct Output {
-        let login: Driver<Void>
+        let login: Driver<AuthData>
         let signUp: Driver<Void>
+        let error: Driver<NSError>
     }
     
     func transform(input: Input) -> Output {
         let account = Driver.combineLatest(input.username,
                                            input.password) {username, password in
-            return Account(username: username, password: password)
+            return Account(username: username,
+                           password: password)
         }
+        let errorDriver = PublishRelay<NSError>()
+        
         let login = input.loginTrigger
             .asObservable()
             .withLatestFrom(account)
-            .flatMap { [weak self] account -> Observable<Void> in
+            .flatMap { [weak self] account -> Observable<AuthData> in
                 guard let self = self else {return .empty()}
                 return (self.useCase.login(account: account)).asObservable()
             }
-            .do(onNext: {[weak self] in
-                self?.navigator.toHomeView()
-            }, onError: {[weak self] error in
-                self?.navigator.presentAlert(error: error as NSError)
+            .do(onNext: {[weak self] authData in
+                if authData.error == nil {
+                    self?.navigator.toHomeView()
+                } else {
+                    errorDriver.accept(authData.error ?? NSError())
+                }
             })
             .asDriver(onErrorDriveWith: .empty())
-
+        
         let signUp = input.signUpTrigger
             .do(onNext: navigator.toRegisterView)
-        return Output(login: login, signUp: signUp)
+        return Output(login: login,
+                      signUp: signUp,
+                      error: errorDriver.asDriver(onErrorDriveWith: .empty()))
     }
 }

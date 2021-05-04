@@ -11,7 +11,7 @@ import Firebase
 import RxSwift
 import RxCocoa
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: BaseViewController {
     // MARK: outlet
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -22,7 +22,6 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     
     var viewModel: RegisterViewModel?
-    private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +34,43 @@ class RegisterViewController: UIViewController {
                                             confirmPassword: confirmPasswordTextField.rx.text.orEmpty.asDriver(),
                                             registerTrigger: registerButton.rx.tap.asDriver())
         guard let viewModel = viewModel else {
-            print("viewModel nil")
             return
         }
         let output = viewModel.transform(input: input)
         output.signUp.drive()
             .disposed(by: bag)
+        output.error.drive(errorBinding)
+            .disposed(by: bag)
+        output.confirmPasswordError
+            .drive(onNext: {error in
+                if error == nil {
+                    self.registerButton.isEnabled = true
+                    self.errorOfConfirmPasswordLabel.text?.removeAll()
+                } else {
+                    self.registerButton.isEnabled = false
+                    self.errorOfConfirmPasswordLabel.text = error
+                }
+            })
+            .disposed(by: bag)
+    }
+    
+    var errorBinding: Binder<NSError> {
+        return Binder(self, binding: {registerView, error in
+            switch AuthErrorCode(rawValue: error.code) {
+            case .missingEmail:
+                registerView.errorOfEmailLabel.text = error.localizedDescription
+            case .invalidEmail:
+                registerView.errorOfEmailLabel.text = error.localizedDescription
+            case .wrongPassword:
+                registerView.errorOfPasswordLabel.text = error.localizedDescription
+            case .weakPassword:
+                registerView.errorOfPasswordLabel.text = error.localizedDescription
+            default:
+                let title = "Register"
+                AlertHelper.shared.presentAlert(title: title,
+                                                error: error,
+                                                view: self)
+            }
+        })
     }
 }

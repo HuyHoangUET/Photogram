@@ -14,7 +14,6 @@ import Firebase
 protocol LoginNavigator {
     func toRegisterView()
     func toHomeView()
-    func presentAlert(error: NSError)
 }
 
 class DefaultLoginNavigator: LoginNavigator {
@@ -25,27 +24,17 @@ class DefaultLoginNavigator: LoginNavigator {
     }
     
     func toHomeView() {
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let homeTabbar = storyboard.instantiateViewController(identifier: "HomeTabbarController") as HomeTabbarController
-        navigationController.setViewControllers([homeTabbar], animated: true)
+        let homeTabbarController = HomeTabbarController.instantiate(from: "Home", withIdentifier: "HomeTabbarController")
+        navigationController.pushViewController(homeTabbarController, animated: true)
         navigationController.setNavigationBarHidden(true, animated: false)
     }
     
     func toRegisterView() {
-        let storyboard = UIStoryboard(name: "Register", bundle: nil)
-        guard let registerView = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as? RegisterViewController else { return }
+        let registerViewController = RegisterViewController.instantiate(from: "Register", withIdentifier: "RegisterViewController")
         let navigator = DefaultRegisterNavigator(navigationController: self.navigationController)
         let respository = Respository()
         let useCase = RegisterUseCase(respository: respository)
         
-        registerView.viewModel = RegisterViewModel(useCase: useCase, navigator: navigator)
-        navigationController.pushViewController(registerView, animated: true)
-    }
-    
-    func presentAlert(error: NSError) {
-        let alertController: UIAlertController = UIAlertController(title: "Login failed!", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
-        let alertAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
-        alertController.addAction(alertAction)
-        navigationController.present(alertController, animated: true, completion: nil)
-    }
-}
+        registerViewController.viewModel = RegisterViewModel(useCase: useCase, navigator: navigator)
+        navigationController.pushViewController(registerViewController, animated: true)
+    }}

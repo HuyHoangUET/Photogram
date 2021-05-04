@@ -11,19 +11,19 @@ import RxCocoa
 import Firebase
 
 protocol RespositoryType {
-    func login(account: Account) -> Observable<Void>
-    func signUp(account: Account, isConfirmSuccess: Bool) -> Observable<String?>
+    func login(account: Account) -> Observable<AuthData>
+    func signUp(account: Account) -> Observable<AuthData>
     func signOut() -> Single<Void>
 }
 
 final class Respository: RespositoryType {
-    func login(account: Account) -> Observable<Void> {
+    func login(account: Account) -> Observable<AuthData> {
         return Observable.create { obsever in
-            Auth.auth().signIn(withEmail: account.username, password: account.password) {_, error in
+            Auth.auth().signIn(withEmail: account.username, password: account.password) {result, error in
                 if let error = error as NSError? {
-                    obsever.onError(error)
+                    obsever.onNext(AuthData(result: nil, error: error))
                 } else {
-                    obsever.onNext(())
+                    obsever.onNext(AuthData(result: result, error: nil))
                 }
                 obsever.onCompleted()
             }
@@ -31,18 +31,15 @@ final class Respository: RespositoryType {
         }
     }
     
-    func signUp(account: Account, isConfirmSuccess: Bool) -> Observable<String?> {
+    func signUp(account: Account) -> Observable<AuthData> {
         return Observable.create { obsever in
-            if isConfirmSuccess {
-                Auth.auth().createUser(withEmail: account.username, password: account.password) { _, error in
-                    if let error = error as NSError? {
-                        obsever.onError(error)
-                    } else {
-                        obsever.onNext(nil)
-                    }
+            Auth.auth().createUser(withEmail: account.username, password: account.password) { result, error in
+                if let error = error as NSError? {
+                    obsever.onNext(AuthData(result: nil, error: error))
+                } else {
+                    obsever.onNext(AuthData(result: result, error: nil))
                 }
-            } else {
-                obsever.onNext("Password confimation doesn't match password!")
+                obsever.onCompleted()
             }
             return Disposables.create()
         }

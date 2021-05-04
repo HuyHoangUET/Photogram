@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="egL-XO-NF8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="egL-XO-NF8">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -55,7 +56,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lg0-P2-iUg">
-                                <rect key="frame" x="41.5" y="529" width="83" height="22"/>
+                                <rect key="frame" x="41.5" y="539" width="83" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -66,12 +67,12 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="voimamut98" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sDf-Oj-VIv">
-                                <rect key="frame" x="41.5" y="556" width="331" height="34"/>
+                                <rect key="frame" x="41.5" y="566" width="331" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zNR-Uf-Zg7">
-                                <rect key="frame" x="155.5" y="647" width="103.5" height="46"/>
+                                <rect key="frame" x="155.5" y="657" width="103.5" height="46"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <state key="normal" title="Login">
@@ -79,13 +80,13 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dk8-UR-Xrs">
-                                <rect key="frame" x="197.5" y="713" width="19" height="21"/>
+                                <rect key="frame" x="197.5" y="723" width="19" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XpS-XK-XrF">
-                                <rect key="frame" x="172" y="754" width="70" height="34"/>
+                                <rect key="frame" x="172" y="764" width="70" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="SIGN UP">
                                     <color key="titleColor" systemColor="linkColor"/>
@@ -98,7 +99,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CF6-Oi-0gN">
-                                <rect key="frame" x="41.5" y="595" width="331" height="0.0"/>
+                                <rect key="frame" x="41.5" y="605" width="331" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
@@ -134,7 +135,7 @@
                             <constraint firstItem="bPG-9F-0sI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" multiplier="2" id="crx-Ux-LCY"/>
                             <constraint firstItem="zNR-Uf-Zg7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dge-nL-NkZ"/>
                             <constraint firstItem="Lg0-P2-iUg" firstAttribute="leading" secondItem="Ope-Ca-fCM" secondAttribute="leading" id="elg-5p-gAT"/>
-                            <constraint firstItem="Lg0-P2-iUg" firstAttribute="top" secondItem="Ope-Ca-fCM" secondAttribute="bottom" constant="30" id="ioq-ak-z4Q"/>
+                            <constraint firstItem="Lg0-P2-iUg" firstAttribute="top" secondItem="Ope-Ca-fCM" secondAttribute="bottom" constant="40" id="ioq-ak-z4Q"/>
                             <constraint firstItem="dk8-UR-Xrs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kDx-Jh-Rrx"/>
                             <constraint firstItem="sDf-Oj-VIv" firstAttribute="trailing" secondItem="Ope-Ca-fCM" secondAttribute="trailing" id="l1z-gS-ZaO"/>
                             <constraint firstItem="sgO-E2-fYP" firstAttribute="leading" secondItem="bPG-9F-0sI" secondAttribute="leading" id="mFp-k6-QJu"/>
